@@ -1,0 +1,10 @@
+title: ropensci screencasts
+permalink:    /:year/:month/:title/
+author:
+  name:       'Scott Chamberlain'
+  email:      'myrmecocystus@gmail.com'
+description: ropensci screencasts
+
+# Build settings
+markdown: rdiscount
+highlighter: pygments

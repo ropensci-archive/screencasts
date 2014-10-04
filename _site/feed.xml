@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ropensci screencasts</title>
+    <description>ropensci screencasts</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 03 Oct 2014 17:49:13 -0700</pubDate>
+    <lastBuildDate>Fri, 03 Oct 2014 17:49:13 -0700</lastBuildDate>
+    <generator>Jekyll v2.3.0</generator>
+    
+      <item>
+        <title>taxize</title>
+        <description>&lt;p&gt;Here&#39;s the taxize screencast!&lt;/p&gt;
+
+&lt;p&gt;Follow along below in your favorite R client.&lt;/p&gt;
+
+&lt;iframe src=&quot;//player.vimeo.com/video/92883063&quot; width=&quot;600&quot; height=&quot;381&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+
+&lt;h1&gt;taxize screencast&lt;/h1&gt;
+
+&lt;h2&gt;Intro&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Hi, I&#39;m Scott Chamberlain&lt;/p&gt;
+
+&lt;p&gt;In this screencast, I&#39;ll do a brief intoduction to the taxize package - a taxonomic toolbelt for R&lt;/p&gt;
+
+&lt;p&gt;You can install taxize from &lt;a href=&quot;http://cran.r-project.org/web/packages/taxize/index.html&quot;&gt;CRAN&lt;/a&gt;, or install the &lt;a href=&quot;https://github.com/ropensci/taxize&quot;&gt;development version from GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;taxize interacts with about 20 data sources&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;text-align:left;&quot;/&gt;
+&lt;col style=&quot;text-align:left;&quot;/&gt;
+&lt;col style=&quot;text-align:left;&quot;/&gt;
+&lt;col style=&quot;text-align:left;&quot;/&gt;
+&lt;col style=&quot;text-align:left;&quot;/&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+&lt;tr&gt;
+  &lt;th style=&quot;text-align:left;&quot;&gt;Souce&lt;/th&gt;
+  &lt;th style=&quot;text-align:left;&quot;&gt;Function prefix&lt;/th&gt;
+  &lt;th style=&quot;text-align:left;&quot;&gt;API Docs&lt;/th&gt;
+  &lt;th style=&quot;text-align:left;&quot;&gt;API key&lt;/th&gt;
+  &lt;th style=&quot;text-align:left;&quot;&gt;&lt;em&gt;soap branch only&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Encylopedia of Life&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;eol&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.eol.org/api/&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://eol.org/users/register&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Taxonomic Name Resolution Service&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;tnrs&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://api.phylotastic.org/tnrs&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Integrated Taxonomic Information Service&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;itis&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.itis.gov/ws_description.html&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Phylomatic&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;phylomatic&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.phylodiversity.net/phylomatic/phylomatic_api.html&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;uBio&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;ubio&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.ubio.org/index.php?pagename=xml_services&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.ubio.org/index.php?pagename=form&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Global Names Resolver&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;gnr&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://resolver.globalnames.org/api&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Global Names Index&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;gni&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;https://github.com/dimus/gni/wiki/api&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;IUCN Red List&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;iucn&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Tropicos&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;tp&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://services.tropicos.org/help&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://services.tropicos.org/help?requestkey&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Plantminer&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;plantminer&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.plantminer.com/help&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.plantminer.com/help&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Theplantlist dot org&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;tpl&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;**&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Catalogue of Life&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;col&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.catalogueoflife.org/colwebsite/content/web-services&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Global Invasive Species Database&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;gisd&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;***&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;National Center for Biotechnology Information&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;ncbi&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;CANADENSYS Vascan name search API&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;vascan&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://data.canadensys.net/vascan/api&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;International Plant Names Index (IPNI)&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;ipni&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.ipni.org/link_to_ipni.html&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;World Register of Marine Species (WoRMS)&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;worms&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.marinespecies.org/aphia.php?p=webservice&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;strong&gt;TRUE&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Barcode of Life Data Systems (BOLD)&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;bold&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.boldsystems.org/index.php/Resources&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Pan-European Species directories Infrastructure (PESI)&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;pesi&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.eu-nomen.eu/portal/webservices.php&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;strong&gt;TRUE&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;Mycobank&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;myco&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;http://www.mycobank.org/Services/Generic/Help.aspx?s=searchservice&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;strong&gt;TRUE&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;National Biodiversity Network (UK)&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;nbn&lt;/code&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;&lt;a href=&quot;https://data.nbn.org.uk/Documentation/Web_Services/Web_Services-REST/resources/restapi/rest.html&quot;&gt;link&lt;/a&gt;&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;none&lt;/td&gt;
+  &lt;td style=&quot;text-align:left;&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;blockquote&gt;&lt;p&gt;More will be added in the future&lt;/p&gt;
+
+&lt;p&gt;Taxonomic names are something many biologists have to deal with&lt;/p&gt;
+
+&lt;p&gt;I&#39;ll walk you through a variety of things you can do with taxize&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Installation and load&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;install.packages(&quot;taxize&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;library(taxize)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Taxonomic identifiers&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;get_ids(names=&quot;Chironomus riparius&quot;, db = &#39;ncbi&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $ncbi
+## Chironomus riparius
+##            &quot;315576&quot;
+## attr(,&quot;match&quot;)
+## [1] &quot;found&quot;
+## attr(,&quot;uri&quot;)
+## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;uid&quot;
+##
+## attr(,&quot;class&quot;)
+## [1] &quot;ids&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;get_ids(names=c(&quot;Chironomus riparius&quot;, &quot;Poa annua&quot;), db = c(&#39;ncbi&#39;,&#39;itis&#39;,&#39;col&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;##      colid      name    rank        status
+## 1  9791858 Poa annua Species accepted name
+## 2 10003530 Poa annua Species       synonym
+##                                             source    acc_name
+## 1 WCSP: World Checklist of Selected Plant Families        &amp;lt;NA&amp;gt;
+## 2 WCSP: World Checklist of Selected Plant Families Poa infirma
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $ncbi
+## Chironomus riparius           Poa annua
+##            &quot;315576&quot;             &quot;93036&quot;
+## attr(,&quot;match&quot;)
+## [1] &quot;found&quot; &quot;found&quot;
+## attr(,&quot;uri&quot;)
+## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
+## [2] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/93036&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;uid&quot;
+##
+## $itis
+## Chironomus riparius           Poa annua
+##            &quot;129313&quot;             &quot;41107&quot;
+## attr(,&quot;match&quot;)
+## [1] &quot;found&quot; &quot;found&quot;
+## attr(,&quot;uri&quot;)
+## [1] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=129313&quot;
+## [2] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=41107&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;tsn&quot;
+##
+## $col
+## Chironomus riparius           Poa annua
+##           &quot;8663146&quot;           &quot;9791858&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;colid&quot;
+## attr(,&quot;uri&quot;)
+## [1] &quot;http://www.catalogueoflife.org/col/details/species/id/8663146&quot;
+## [2] &quot;http://www.catalogueoflife.org/col/details/species/id/9791858&quot;
+##
+## attr(,&quot;class&quot;)
+## [1] &quot;ids&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Hierarchies&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;and now taxonomic hieararchies&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;classification(&quot;Chironomus riparius&quot;, db = &#39;ncbi&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $`Chironomus riparius`
+##                         name         rank
+## 1         cellular organisms      no rank
+## 2                  Eukaryota superkingdom
+## 3               Opisthokonta      no rank
+## 4                    Metazoa      kingdom
+## 5                  Eumetazoa      no rank
+## 6                  Bilateria      no rank
+## 7                Protostomia      no rank
+## 8                  Ecdysozoa      no rank
+## 9              Panarthropoda      no rank
+## 10                Arthropoda       phylum
+## 11               Mandibulata      no rank
+## 12              Pancrustacea      no rank
+## 13                  Hexapoda   superclass
+## 14                   Insecta        class
+## 15                Dicondylia      no rank
+## 16                 Pterygota      no rank
+## 17                  Neoptera     subclass
+## 18             Endopterygota   infraclass
+## 19                   Diptera        order
+## 20                Nematocera     suborder
+## 21              Culicomorpha   infraorder
+## 22             Chironomoidea  superfamily
+## 23              Chironomidae       family
+## 24              Chironominae    subfamily
+## 25               Chironomini        tribe
+## 26                Chironomus        genus
+## 27 Chironomus incertae sedis      no rank
+## 28       Chironomus riparius      species
+##
+## attr(,&quot;class&quot;)
+## [1] &quot;classification&quot;
+## attr(,&quot;db&quot;)
+## [1] &quot;ncbi&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;classification(get_uid(&quot;Chironomus riparius&quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $`315576`
+##                         name         rank
+## 1         cellular organisms      no rank
+## 2                  Eukaryota superkingdom
+## 3               Opisthokonta      no rank
+## 4                    Metazoa      kingdom
+## 5                  Eumetazoa      no rank
+## 6                  Bilateria      no rank
+## 7                Protostomia      no rank
+## 8                  Ecdysozoa      no rank
+## 9              Panarthropoda      no rank
+## 10                Arthropoda       phylum
+## 11               Mandibulata      no rank
+## 12              Pancrustacea      no rank
+## 13                  Hexapoda   superclass
+## 14                   Insecta        class
+## 15                Dicondylia      no rank
+## 16                 Pterygota      no rank
+## 17                  Neoptera     subclass
+## 18             Endopterygota   infraclass
+## 19                   Diptera        order
+## 20                Nematocera     suborder
+## 21              Culicomorpha   infraorder
+## 22             Chironomoidea  superfamily
+## 23              Chironomidae       family
+## 24              Chironominae    subfamily
+## 25               Chironomini        tribe
+## 26                Chironomus        genus
+## 27 Chironomus incertae sedis      no rank
+## 28       Chironomus riparius      species
+##
+## attr(,&quot;class&quot;)
+## [1] &quot;classification&quot;
+## attr(,&quot;db&quot;)
+## [1] &quot;ncbi&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;# out &amp;lt;- get_ids(names=&quot;Poa annua&quot;, db = c(&#39;ncbi&#39;,&#39;itis&#39;,&#39;col&#39;,&#39;eol&#39;,&#39;tropicos&#39;))
+# classification(out)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Check name spelling&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Check name spelling&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;mynames &amp;lt;- c(&quot;Helianthus annus&quot;, &quot;Poa anua&quot;, &quot;Pinus contort&quot;)
+out &amp;lt;- tnrs(query = mynames, source=&quot;iPlant_TNRS&quot;)
+out[,c(1:5)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;##      submittedname      acceptedname    sourceid score       matchedname
+## 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta
+## 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus
+## 3         Poa anua         Poa annua iPlant_TNRS  0.96         Poa annua
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Synonyms&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Moving on to synonyms&lt;/p&gt;
+
+&lt;p&gt;The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;synonyms(c(&quot;Poa annua&quot;,&#39;Pinus contorta&#39;,&#39;Puma concolor&#39;), db=&quot;itis&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $`Poa annua`
+##                           name    tsn
+## 1      Poa annua var. aquatica 538978
+## 2       Poa annua var. reptans 538979
+## 3                  Aira pumila 785854
+## 4             Catabrosa pumila 787993
+## 5               Ochlopoa annua 791574
+## 6               Poa aestivalis 793946
+## 7                   Poa algida 793954
+## 8         Poa annua var. annua 802116
+## 9     Poa annua var. eriolepis 802117
+## 10 Poa annua var. rigidiuscula 802119
+## 11        Poa annua f. reptans 803667
+##
+## $`Pinus contorta`
+##      name    tsn
+## 1 nomatch 183327
+##
+## $`Puma concolor`
+##             name    tsn
+## 1 Felis concolor 180587
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Downstream&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Sometimes you just wann know &quot;what species are in this genus!!!&quot;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;col_downstream(name = &quot;Apis&quot;, downto=&quot;Species&quot;)[[1]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;##   childtaxa_id     childtaxa_name childtaxa_rank
+## 1      6971712 Apis andreniformis        Species
+## 2      6971713        Apis cerana        Species
+## 3      6971714       Apis dorsata        Species
+## 4      6971715        Apis florea        Species
+## 5      6971716 Apis koschevnikovi        Species
+## 6      6845885     Apis mellifera        Species
+## 7      6971717   Apis nigrocincta        Species
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Common from scientific and vice versa&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;sci2comm(&quot;Quercus lobata&quot;, db=&quot;itis&quot;,)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $`Quercus lobata`
+## [1] &quot;California white oak&quot; &quot;valley oak&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;comm2sci(&quot;valley oak&quot;, db=&quot;itis&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## $`valley oak`
+## [1] &quot;Quercus lobata&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;end&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;That&#39;s it! Thanks for watching...&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 03 Oct 2014 00:00:00 -0700</pubDate>
+        <link>/2014/10/taxize/</link>
+        <guid isPermaLink="true">/2014/10/taxize/</guid>
+        
+        
+        <category>screencasts</category>
+        
+      </item>
+    
+  </channel>
+</rss>
