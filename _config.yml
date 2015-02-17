@@ -5,6 +5,10 @@ url: 				 "http://ropensci.github.io"
 author:
   name:       'Scott Chamberlain'
   email:      'myrmecocystus@gmail.com'
+email: 			 info@ropensci.org
+description: "rOpenSci Screencasts"
+twitter_username: ropensci
+github_username:  ropensci
 description: ropensci screencasts
 
 # Build settings
