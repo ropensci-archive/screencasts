@@ -1,14 +1,14 @@
-title: 				rOpenSci Screencasts
-permalink:    /:title/
-baseurl:    	/screencasts/
-url: 				 "http://ropensci.github.io"
-author:
-  name:       'Scott Chamberlain'
-  email:      'myrmecocystus@gmail.com'
-email: 			 info@ropensci.org
+markdown: redcarpet
+highlighter: null
+permalink: /:title/
+baseurl:   /screencasts
+url: 			 "http://ropensci.github.io"
 twitter_username: ropensci
 github_username:  ropensci
 
-# Build settings
-markdown: rdiscount
-highlighter: pygments
+redcarpet:
+  extensions: [strikethrough, tables]
+
+sass:
+  sass_dir: public/css
+  style: :compressed
