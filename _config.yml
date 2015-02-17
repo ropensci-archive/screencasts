@@ -8,5 +8,5 @@ author:
 description: ropensci screencasts
 
 # Build settings
-markdown: kramdown
+markdown: rdiscount
 highlighter: pygments
