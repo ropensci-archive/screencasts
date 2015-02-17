@@ -1,34 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rOpenSci Screencasts</title>
-    <description></description>
-    <link>http://ropensci.github.io/screencasts//</link>
-    <atom:link href="http://ropensci.github.io/screencasts//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 16 Feb 2015 19:44:19 -0800</pubDate>
-    <lastBuildDate>Mon, 16 Feb 2015 19:44:19 -0800</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <title>rOpenSci</title>
+    <link>http://ropensci.github.io</link>
+    <atom:link href="http://ropensci.github.io/screencasts/feed.xml" rel="self" type="application/rss+xml" />
+    <description>rOpenSci Screencasts</description>
+    <language>en-us</language>
+    <pubDate>Mon, 16 Feb 2015 23:05:22 -0800</pubDate>
+    <lastBuildDate>Mon, 16 Feb 2015 23:05:22 -0800</lastBuildDate>
+
     
       <item>
         <title>taxize</title>
-        <description>&lt;p&gt;Here&#39;s the taxize screencast!&lt;/p&gt;
+        <link>http://ropensci.github.io/screencasts/taxize/</link>
+        <pubDate>Mon, 16 Feb 2015 00:00:00 -0800</pubDate>
+        <author>Scott Chamberlain</author>
+        <description>&lt;p&gt;Here&amp;#39;s the taxize screencast!&lt;/p&gt;
 
 &lt;p&gt;Follow along below in your favorite R client.&lt;/p&gt;
 
 &lt;iframe src=&quot;//player.vimeo.com/video/92883063&quot; width=&quot;600&quot; height=&quot;381&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-
 &lt;h1&gt;taxize screencast&lt;/h1&gt;
 
 &lt;h2&gt;Intro&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Hi, I&#39;m Scott Chamberlain&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi, I&amp;#39;m Scott Chamberlain&lt;/p&gt;
 
-&lt;p&gt;In this screencast, I&#39;ll do a brief intoduction to the taxize package - a taxonomic toolbelt for R&lt;/p&gt;
+&lt;p&gt;In this screencast, I&amp;#39;ll do a brief intoduction to the taxize package - a taxonomic toolbelt for R&lt;/p&gt;
 
 &lt;p&gt;You can install taxize from &lt;a href=&quot;http://cran.r-project.org/web/packages/taxize/index.html&quot;&gt;CRAN&lt;/a&gt;, or install the &lt;a href=&quot;https://github.com/ropensci/taxize&quot;&gt;development version from GitHub&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;taxize interacts with about 20 data sources&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;taxize interacts with about 20 data sources&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
 &lt;colgroup&gt;
@@ -200,94 +205,80 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-
-&lt;blockquote&gt;&lt;p&gt;More will be added in the future&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;More will be added in the future&lt;/p&gt;
 
 &lt;p&gt;Taxonomic names are something many biologists have to deal with&lt;/p&gt;
 
-&lt;p&gt;I&#39;ll walk you through a variety of things you can do with taxize&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I&amp;#39;ll walk you through a variety of things you can do with taxize&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2&gt;Installation and load&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;install.packages(&quot;taxize&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;library(taxize)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages(&amp;quot;taxize&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;library(taxize)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Taxonomic identifiers&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;get_ids(names=&quot;Chironomus riparius&quot;, db = &#39;ncbi&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $ncbi
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids(names=&amp;quot;Chironomus riparius&amp;quot;, db = &amp;#39;ncbi&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $ncbi
 ## Chironomus riparius
-##            &quot;315576&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;uid&quot;
+##            &amp;quot;315576&amp;quot;
+## attr(,&amp;quot;match&amp;quot;)
+## [1] &amp;quot;found&amp;quot;
+## attr(,&amp;quot;uri&amp;quot;)
+## [1] &amp;quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&amp;quot;
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;uid&amp;quot;
 ##
-## attr(,&quot;class&quot;)
-## [1] &quot;ids&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;get_ids(names=c(&quot;Chironomus riparius&quot;, &quot;Poa annua&quot;), db = c(&#39;ncbi&#39;,&#39;itis&#39;,&#39;col&#39;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;##      colid      name    rank        status
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;ids&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids(names=c(&amp;quot;Chironomus riparius&amp;quot;, &amp;quot;Poa annua&amp;quot;), db = c(&amp;#39;ncbi&amp;#39;,&amp;#39;itis&amp;#39;,&amp;#39;col&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      colid      name    rank        status
 ## 1  9791858 Poa annua Species accepted name
 ## 2 10003530 Poa annua Species       synonym
 ##                                             source    acc_name
 ## 1 WCSP: World Checklist of Selected Plant Families        &amp;lt;NA&amp;gt;
 ## 2 WCSP: World Checklist of Selected Plant Families Poa infirma
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $ncbi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $ncbi
 ## Chironomus riparius           Poa annua
-##            &quot;315576&quot;             &quot;93036&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot; &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
-## [2] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/93036&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;uid&quot;
+##            &amp;quot;315576&amp;quot;             &amp;quot;93036&amp;quot;
+## attr(,&amp;quot;match&amp;quot;)
+## [1] &amp;quot;found&amp;quot; &amp;quot;found&amp;quot;
+## attr(,&amp;quot;uri&amp;quot;)
+## [1] &amp;quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&amp;quot;
+## [2] &amp;quot;http://www.ncbi.nlm.nih.gov/taxonomy/93036&amp;quot;
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;uid&amp;quot;
 ##
 ## $itis
 ## Chironomus riparius           Poa annua
-##            &quot;129313&quot;             &quot;41107&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot; &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=129313&quot;
-## [2] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=41107&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;tsn&quot;
+##            &amp;quot;129313&amp;quot;             &amp;quot;41107&amp;quot;
+## attr(,&amp;quot;match&amp;quot;)
+## [1] &amp;quot;found&amp;quot; &amp;quot;found&amp;quot;
+## attr(,&amp;quot;uri&amp;quot;)
+## [1] &amp;quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=129313&amp;quot;
+## [2] &amp;quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;amp;search_value=41107&amp;quot;
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;tsn&amp;quot;
 ##
 ## $col
 ## Chironomus riparius           Poa annua
-##           &quot;8663146&quot;           &quot;9791858&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;colid&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.catalogueoflife.org/col/details/species/id/8663146&quot;
-## [2] &quot;http://www.catalogueoflife.org/col/details/species/id/9791858&quot;
+##           &amp;quot;8663146&amp;quot;           &amp;quot;9791858&amp;quot;
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;colid&amp;quot;
+## attr(,&amp;quot;uri&amp;quot;)
+## [1] &amp;quot;http://www.catalogueoflife.org/col/details/species/id/8663146&amp;quot;
+## [2] &amp;quot;http://www.catalogueoflife.org/col/details/species/id/9791858&amp;quot;
 ##
-## attr(,&quot;class&quot;)
-## [1] &quot;ids&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;ids&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Hierarchies&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;and now taxonomic hieararchies&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;classification(&quot;Chironomus riparius&quot;, db = &#39;ncbi&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $`Chironomus riparius`
+&lt;blockquote&gt;
+&lt;p&gt;and now taxonomic hieararchies&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification(&amp;quot;Chironomus riparius&amp;quot;, db = &amp;#39;ncbi&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Chironomus riparius`
 ##                         name         rank
 ## 1         cellular organisms      no rank
 ## 2                  Eukaryota superkingdom
@@ -318,16 +309,12 @@
 ## 27 Chironomus incertae sedis      no rank
 ## 28       Chironomus riparius      species
 ##
-## attr(,&quot;class&quot;)
-## [1] &quot;classification&quot;
-## attr(,&quot;db&quot;)
-## [1] &quot;ncbi&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;classification(get_uid(&quot;Chironomus riparius&quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $`315576`
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;classification&amp;quot;
+## attr(,&amp;quot;db&amp;quot;)
+## [1] &amp;quot;ncbi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification(get_uid(&amp;quot;Chironomus riparius&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`315576`
 ##                         name         rank
 ## 1         cellular organisms      no rank
 ## 2                  Eukaryota superkingdom
@@ -358,41 +345,35 @@
 ## 27 Chironomus incertae sedis      no rank
 ## 28       Chironomus riparius      species
 ##
-## attr(,&quot;class&quot;)
-## [1] &quot;classification&quot;
-## attr(,&quot;db&quot;)
-## [1] &quot;ncbi&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;# out &amp;lt;- get_ids(names=&quot;Poa annua&quot;, db = c(&#39;ncbi&#39;,&#39;itis&#39;,&#39;col&#39;,&#39;eol&#39;,&#39;tropicos&#39;))
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;classification&amp;quot;
+## attr(,&amp;quot;db&amp;quot;)
+## [1] &amp;quot;ncbi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;# out &amp;lt;- get_ids(names=&amp;quot;Poa annua&amp;quot;, db = c(&amp;#39;ncbi&amp;#39;,&amp;#39;itis&amp;#39;,&amp;#39;col&amp;#39;,&amp;#39;eol&amp;#39;,&amp;#39;tropicos&amp;#39;))
 # classification(out)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Check name spelling&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Check name spelling&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;mynames &amp;lt;- c(&quot;Helianthus annus&quot;, &quot;Poa anua&quot;, &quot;Pinus contort&quot;)
-out &amp;lt;- tnrs(query = mynames, source=&quot;iPlant_TNRS&quot;)
+&lt;blockquote&gt;
+&lt;p&gt;Check name spelling&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mynames &amp;lt;- c(&amp;quot;Helianthus annus&amp;quot;, &amp;quot;Poa anua&amp;quot;, &amp;quot;Pinus contort&amp;quot;)
+out &amp;lt;- tnrs(query = mynames, source=&amp;quot;iPlant_TNRS&amp;quot;)
 out[,c(1:5)]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;##      submittedname      acceptedname    sourceid score       matchedname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      submittedname      acceptedname    sourceid score       matchedname
 ## 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta
 ## 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus
 ## 3         Poa anua         Poa annua iPlant_TNRS  0.96         Poa annua
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Synonyms&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Moving on to synonyms&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Moving on to synonyms&lt;/p&gt;
 
-&lt;p&gt;The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;synonyms(c(&quot;Poa annua&quot;,&#39;Pinus contorta&#39;,&#39;Puma concolor&#39;), db=&quot;itis&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $`Poa annua`
+&lt;p&gt;The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;synonyms(c(&amp;quot;Poa annua&amp;quot;,&amp;#39;Pinus contorta&amp;#39;,&amp;#39;Puma concolor&amp;#39;), db=&amp;quot;itis&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Poa annua`
 ##                           name    tsn
 ## 1      Poa annua var. aquatica 538978
 ## 2       Poa annua var. reptans 538979
@@ -413,16 +394,14 @@ out[,c(1:5)]
 ## $`Puma concolor`
 ##             name    tsn
 ## 1 Felis concolor 180587
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Downstream&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Sometimes you just wann know &quot;what species are in this genus!!!&quot;&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;col_downstream(name = &quot;Apis&quot;, downto=&quot;Species&quot;)[[1]]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;##   childtaxa_id     childtaxa_name childtaxa_rank
+&lt;blockquote&gt;
+&lt;p&gt;Sometimes you just wann know &amp;quot;what species are in this genus!!!&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;col_downstream(name = &amp;quot;Apis&amp;quot;, downto=&amp;quot;Species&amp;quot;)[[1]]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##   childtaxa_id     childtaxa_name childtaxa_rank
 ## 1      6971712 Apis andreniformis        Species
 ## 2      6971713        Apis cerana        Species
 ## 3      6971714       Apis dorsata        Species
@@ -430,38 +409,27 @@ out[,c(1:5)]
 ## 5      6971716 Apis koschevnikovi        Species
 ## 6      6845885     Apis mellifera        Species
 ## 7      6971717   Apis nigrocincta        Species
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Common from scientific and vice versa&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;sci2comm(&quot;Quercus lobata&quot;, db=&quot;itis&quot;,)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $`Quercus lobata`
-## [1] &quot;California white oak&quot; &quot;valley oak&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;comm2sci(&quot;valley oak&quot;, db=&quot;itis&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $`valley oak`
-## [1] &quot;Quercus lobata&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;blockquote&gt;
+&lt;p&gt;You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;sci2comm(&amp;quot;Quercus lobata&amp;quot;, db=&amp;quot;itis&amp;quot;,)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Quercus lobata`
+## [1] &amp;quot;California white oak&amp;quot; &amp;quot;valley oak&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;comm2sci(&amp;quot;valley oak&amp;quot;, db=&amp;quot;itis&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`valley oak`
+## [1] &amp;quot;Quercus lobata&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;end&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;That&#39;s it! Thanks for watching...&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;That&amp;#39;s it! Thanks for watching...&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
-        <pubDate>Fri, 03 Oct 2014 00:00:00 -0700</pubDate>
-        <link>http://ropensci.github.io/screencasts//taxize/</link>
-        <guid isPermaLink="true">http://ropensci.github.io/screencasts//taxize/</guid>
-        
-        
-        <category>screencasts</category>
-        
       </item>
     
+
   </channel>
 </rss>
