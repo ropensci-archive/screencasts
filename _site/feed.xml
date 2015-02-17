@@ -6,8 +6,8 @@
     <atom:link href="http://ropensci.github.io/screencasts/feed.xml" rel="self" type="application/rss+xml" />
     <description>rOpenSci Screencasts</description>
     <language>en-us</language>
-    <pubDate>Mon, 16 Feb 2015 23:10:32 -0800</pubDate>
-    <lastBuildDate>Mon, 16 Feb 2015 23:10:32 -0800</lastBuildDate>
+    <pubDate>Mon, 16 Feb 2015 23:12:54 -0800</pubDate>
+    <lastBuildDate>Mon, 16 Feb 2015 23:12:54 -0800</lastBuildDate>
 
     
       <item>
@@ -214,11 +214,11 @@
 &lt;/blockquote&gt;
 
 &lt;h2&gt;Installation and load&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages(&amp;quot;taxize&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;library(taxize)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;taxize&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;taxize&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Taxonomic identifiers&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids(names=&amp;quot;Chironomus riparius&amp;quot;, db = &amp;#39;ncbi&amp;#39;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;names&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Chironomus riparius&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; db &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;ncbi&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $ncbi
 ## Chironomus riparius
 ##            &amp;quot;315576&amp;quot;
@@ -231,7 +231,7 @@
 ##
 ## attr(,&amp;quot;class&amp;quot;)
 ## [1] &amp;quot;ids&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids(names=c(&amp;quot;Chironomus riparius&amp;quot;, &amp;quot;Poa annua&amp;quot;), db = c(&amp;#39;ncbi&amp;#39;,&amp;#39;itis&amp;#39;,&amp;#39;col&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;get_ids&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;names&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Chironomus riparius&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Poa annua&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; db &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;ncbi&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;itis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;col&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      colid      name    rank        status
 ## 1  9791858 Poa annua Species accepted name
 ## 2 10003530 Poa annua Species       synonym
@@ -277,7 +277,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;and now taxonomic hieararchies&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification(&amp;quot;Chironomus riparius&amp;quot;, db = &amp;#39;ncbi&amp;#39;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Chironomus riparius&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; db &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;ncbi&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Chironomus riparius`
 ##                         name         rank
 ## 1         cellular organisms      no rank
@@ -313,7 +313,7 @@
 ## [1] &amp;quot;classification&amp;quot;
 ## attr(,&amp;quot;db&amp;quot;)
 ## [1] &amp;quot;ncbi&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification(get_uid(&amp;quot;Chironomus riparius&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;classification&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;get_uid&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Chironomus riparius&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`315576`
 ##                         name         rank
 ## 1         cellular organisms      no rank
@@ -349,17 +349,17 @@
 ## [1] &amp;quot;classification&amp;quot;
 ## attr(,&amp;quot;db&amp;quot;)
 ## [1] &amp;quot;ncbi&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;# out &amp;lt;- get_ids(names=&amp;quot;Poa annua&amp;quot;, db = c(&amp;#39;ncbi&amp;#39;,&amp;#39;itis&amp;#39;,&amp;#39;col&amp;#39;,&amp;#39;eol&amp;#39;,&amp;#39;tropicos&amp;#39;))
-# classification(out)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# out &amp;lt;- get_ids(names=&amp;quot;Poa annua&amp;quot;, db = c(&amp;#39;ncbi&amp;#39;,&amp;#39;itis&amp;#39;,&amp;#39;col&amp;#39;,&amp;#39;eol&amp;#39;,&amp;#39;tropicos&amp;#39;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# classification(out)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Check name spelling&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Check name spelling&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mynames &amp;lt;- c(&amp;quot;Helianthus annus&amp;quot;, &amp;quot;Poa anua&amp;quot;, &amp;quot;Pinus contort&amp;quot;)
-out &amp;lt;- tnrs(query = mynames, source=&amp;quot;iPlant_TNRS&amp;quot;)
-out[,c(1:5)]
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mynames &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Helianthus annus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Poa anua&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Pinus contort&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+out &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; tnrs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;query &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; mynames&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iPlant_TNRS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+out&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      submittedname      acceptedname    sourceid score       matchedname
 ## 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta
 ## 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus
@@ -372,7 +372,7 @@ out[,c(1:5)]
 
 &lt;p&gt;The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;synonyms(c(&amp;quot;Poa annua&amp;quot;,&amp;#39;Pinus contorta&amp;#39;,&amp;#39;Puma concolor&amp;#39;), db=&amp;quot;itis&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;synonyms&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Poa annua&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Pinus contorta&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Puma concolor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; db&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Poa annua`
 ##                           name    tsn
 ## 1      Poa annua var. aquatica 538978
@@ -400,7 +400,7 @@ out[,c(1:5)]
 &lt;blockquote&gt;
 &lt;p&gt;Sometimes you just wann know &amp;quot;what species are in this genus!!!&amp;quot;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;col_downstream(name = &amp;quot;Apis&amp;quot;, downto=&amp;quot;Species&amp;quot;)[[1]]
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;col_downstream&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Apis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; downto&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##   childtaxa_id     childtaxa_name childtaxa_rank
 ## 1      6971712 Apis andreniformis        Species
 ## 2      6971713        Apis cerana        Species
@@ -415,10 +415,10 @@ out[,c(1:5)]
 &lt;blockquote&gt;
 &lt;p&gt;You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;sci2comm(&amp;quot;Quercus lobata&amp;quot;, db=&amp;quot;itis&amp;quot;,)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;sci2comm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Quercus lobata&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; db&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`Quercus lobata`
 ## [1] &amp;quot;California white oak&amp;quot; &amp;quot;valley oak&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;comm2sci(&amp;quot;valley oak&amp;quot;, db=&amp;quot;itis&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;comm2sci&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;valley oak&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; db&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;itis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## $`valley oak`
 ## [1] &amp;quot;Quercus lobata&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
