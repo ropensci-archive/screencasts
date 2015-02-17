@@ -1,10 +1,12 @@
-title: ropensci screencasts
-permalink:    /:year/:month/:title/
+title: 				rOpenSci Screencasts
+permalink:    /:title/
+baseurl:    	/screencasts/
+url: 				 "http://ropensci.github.io"
 author:
   name:       'Scott Chamberlain'
   email:      'myrmecocystus@gmail.com'
 description: ropensci screencasts
 
 # Build settings
-markdown: rdiscount
+markdown: kramdown
 highlighter: pygments

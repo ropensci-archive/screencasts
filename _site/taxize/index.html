@@ -9,8 +9,8 @@
     <title>taxize</title>
     <meta name="description" content="ropensci screencasts">
 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="/2014/10/taxize/">
+    <link rel="stylesheet" href="http://ropensci.github.io/screencasts//css/main.css">
+    <link rel="canonical" href="http://ropensci.github.io/screencasts//taxize/">
 </head>
 
 
@@ -20,7 +20,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">ropensci screencasts</a>
+    <a class="site-title" href="/screencasts//">rOpenSci Screencasts</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -34,7 +34,7 @@
       <div class="trigger">
         
           
-          <a class="page-link" href="/about/">About</a>
+          <a class="page-link" href="/screencasts//about/">About</a>
           
         
           
@@ -61,32 +61,39 @@
   </header>
 
   <article class="post-content">
-    <p>Here's the taxize screencast!</p>
+    <p>Here’s the taxize screencast!</p>
 
 <p>Follow along below in your favorite R client.</p>
 
-<iframe src="//player.vimeo.com/video/92883063" width="600" height="381" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="//player.vimeo.com/video/92883063" width="600" height="381" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
+<h1 id="taxize-screencast">taxize screencast</h1>
 
-<h1>taxize screencast</h1>
+<h2 id="intro">Intro</h2>
 
-<h2>Intro</h2>
+<blockquote>
+  <p>Hi, I’m Scott Chamberlain</p>
+</blockquote>
 
-<blockquote><p>Hi, I'm Scott Chamberlain</p>
+<blockquote>
+  <p>In this screencast, I’ll do a brief intoduction to the taxize package - a taxonomic toolbelt for R</p>
+</blockquote>
 
-<p>In this screencast, I'll do a brief intoduction to the taxize package - a taxonomic toolbelt for R</p>
+<blockquote>
+  <p>You can install taxize from <a href="http://cran.r-project.org/web/packages/taxize/index.html">CRAN</a>, or install the <a href="https://github.com/ropensci/taxize">development version from GitHub</a>.</p>
+</blockquote>
 
-<p>You can install taxize from <a href="http://cran.r-project.org/web/packages/taxize/index.html">CRAN</a>, or install the <a href="https://github.com/ropensci/taxize">development version from GitHub</a>.</p>
-
-<p>taxize interacts with about 20 data sources</p></blockquote>
+<blockquote>
+  <p>taxize interacts with about 20 data sources</p>
+</blockquote>
 
 <table>
 <colgroup>
-<col style="text-align:left;"/>
-<col style="text-align:left;"/>
-<col style="text-align:left;"/>
-<col style="text-align:left;"/>
-<col style="text-align:left;"/>
+<col style="text-align:left;" />
+<col style="text-align:left;" />
+<col style="text-align:left;" />
+<col style="text-align:left;" />
+<col style="text-align:left;" />
 </colgroup>
 
 <thead>
@@ -250,27 +257,36 @@
 </tbody>
 </table>
 
+<blockquote>
+  <p>More will be added in the future</p>
+</blockquote>
 
-<blockquote><p>More will be added in the future</p>
+<blockquote>
+  <p>Taxonomic names are something many biologists have to deal with</p>
+</blockquote>
 
-<p>Taxonomic names are something many biologists have to deal with</p>
+<blockquote>
+  <p>I’ll walk you through a variety of things you can do with taxize</p>
+</blockquote>
 
-<p>I'll walk you through a variety of things you can do with taxize</p></blockquote>
+<h2 id="installation-and-load">Installation and load</h2>
 
-<h2>Installation and load</h2>
+<p><code>r
+install.packages("taxize")
+</code></p>
 
-<pre><code class="r">install.packages("taxize")
-</code></pre>
+<p><code>r
+library(taxize)
+</code></p>
 
-<pre><code class="r">library(taxize)
-</code></pre>
+<h2 id="taxonomic-identifiers">Taxonomic identifiers</h2>
 
-<h2>Taxonomic identifiers</h2>
+<p><code>r
+get_ids(names="Chironomus riparius", db = 'ncbi')
+</code></p>
 
-<pre><code class="r">get_ids(names="Chironomus riparius", db = 'ncbi')
-</code></pre>
-
-<pre><code>## $ncbi
+<p><code>
+## $ncbi
 ## Chironomus riparius
 ##            "315576"
 ## attr(,"match")
@@ -282,20 +298,23 @@
 ##
 ## attr(,"class")
 ## [1] "ids"
-</code></pre>
+</code></p>
 
-<pre><code class="r">get_ids(names=c("Chironomus riparius", "Poa annua"), db = c('ncbi','itis','col'))
-</code></pre>
+<p><code>r
+get_ids(names=c("Chironomus riparius", "Poa annua"), db = c('ncbi','itis','col'))
+</code></p>
 
-<pre><code>##      colid      name    rank        status
+<p><code>
+##      colid      name    rank        status
 ## 1  9791858 Poa annua Species accepted name
 ## 2 10003530 Poa annua Species       synonym
 ##                                             source    acc_name
 ## 1 WCSP: World Checklist of Selected Plant Families        &lt;NA&gt;
 ## 2 WCSP: World Checklist of Selected Plant Families Poa infirma
-</code></pre>
+</code></p>
 
-<pre><code>## $ncbi
+<p><code>
+## $ncbi
 ## Chironomus riparius           Poa annua
 ##            "315576"             "93036"
 ## attr(,"match")
@@ -328,16 +347,20 @@
 ##
 ## attr(,"class")
 ## [1] "ids"
-</code></pre>
+</code></p>
 
-<h2>Hierarchies</h2>
+<h2 id="hierarchies">Hierarchies</h2>
 
-<blockquote><p>and now taxonomic hieararchies</p></blockquote>
+<blockquote>
+  <p>and now taxonomic hieararchies</p>
+</blockquote>
 
-<pre><code class="r">classification("Chironomus riparius", db = 'ncbi')
-</code></pre>
+<p><code>r
+classification("Chironomus riparius", db = 'ncbi')
+</code></p>
 
-<pre><code>## $`Chironomus riparius`
+<p><code>
+## $`Chironomus riparius`
 ##                         name         rank
 ## 1         cellular organisms      no rank
 ## 2                  Eukaryota superkingdom
@@ -372,12 +395,14 @@
 ## [1] "classification"
 ## attr(,"db")
 ## [1] "ncbi"
-</code></pre>
+</code></p>
 
-<pre><code class="r">classification(get_uid("Chironomus riparius"))
-</code></pre>
+<p><code>r
+classification(get_uid("Chironomus riparius"))
+</code></p>
 
-<pre><code>## $`315576`
+<p><code>
+## $`315576`
 ##                         name         rank
 ## 1         cellular organisms      no rank
 ## 2                  Eukaryota superkingdom
@@ -412,37 +437,48 @@
 ## [1] "classification"
 ## attr(,"db")
 ## [1] "ncbi"
-</code></pre>
+</code></p>
 
-<pre><code class="r"># out &lt;- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+<p><code>r
+# out &lt;- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
 # classification(out)
-</code></pre>
+</code></p>
 
-<h2>Check name spelling</h2>
+<h2 id="check-name-spelling">Check name spelling</h2>
 
-<blockquote><p>Check name spelling</p></blockquote>
+<blockquote>
+  <p>Check name spelling</p>
+</blockquote>
 
-<pre><code class="r">mynames &lt;- c("Helianthus annus", "Poa anua", "Pinus contort")
+<p><code>r
+mynames &lt;- c("Helianthus annus", "Poa anua", "Pinus contort")
 out &lt;- tnrs(query = mynames, source="iPlant_TNRS")
 out[,c(1:5)]
-</code></pre>
+</code></p>
 
-<pre><code>##      submittedname      acceptedname    sourceid score       matchedname
+<p><code>
+##      submittedname      acceptedname    sourceid score       matchedname
 ## 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta
 ## 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus
 ## 3         Poa anua         Poa annua iPlant_TNRS  0.96         Poa annua
-</code></pre>
+</code></p>
 
-<h2>Synonyms</h2>
+<h2 id="synonyms">Synonyms</h2>
 
-<blockquote><p>Moving on to synonyms</p>
+<blockquote>
+  <p>Moving on to synonyms</p>
+</blockquote>
 
-<p>The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names</p></blockquote>
+<blockquote>
+  <p>The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names</p>
+</blockquote>
 
-<pre><code class="r">synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
-</code></pre>
+<p><code>r
+synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
+</code></p>
 
-<pre><code>## $`Poa annua`
+<p><code>
+## $`Poa annua`
 ##                           name    tsn
 ## 1      Poa annua var. aquatica 538978
 ## 2       Poa annua var. reptans 538979
@@ -463,16 +499,20 @@ out[,c(1:5)]
 ## $`Puma concolor`
 ##             name    tsn
 ## 1 Felis concolor 180587
-</code></pre>
+</code></p>
 
-<h2>Downstream</h2>
+<h2 id="downstream">Downstream</h2>
 
-<blockquote><p>Sometimes you just wann know "what species are in this genus!!!"</p></blockquote>
+<blockquote>
+  <p>Sometimes you just wann know “what species are in this genus!!!”</p>
+</blockquote>
 
-<pre><code class="r">col_downstream(name = "Apis", downto="Species")[[1]]
-</code></pre>
+<p><code>r
+col_downstream(name = "Apis", downto="Species")[[1]]
+</code></p>
 
-<pre><code>##   childtaxa_id     childtaxa_name childtaxa_rank
+<p><code>
+##   childtaxa_id     childtaxa_name childtaxa_rank
 ## 1      6971712 Apis andreniformis        Species
 ## 2      6971713        Apis cerana        Species
 ## 3      6971714       Apis dorsata        Species
@@ -480,29 +520,37 @@ out[,c(1:5)]
 ## 5      6971716 Apis koschevnikovi        Species
 ## 6      6845885     Apis mellifera        Species
 ## 7      6971717   Apis nigrocincta        Species
-</code></pre>
+</code></p>
 
-<h2>Common from scientific and vice versa</h2>
+<h2 id="common-from-scientific-and-vice-versa">Common from scientific and vice versa</h2>
 
-<blockquote><p>You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.</p></blockquote>
+<blockquote>
+  <p>You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.</p>
+</blockquote>
 
-<pre><code class="r">sci2comm("Quercus lobata", db="itis",)
-</code></pre>
+<p><code>r
+sci2comm("Quercus lobata", db="itis",)
+</code></p>
 
-<pre><code>## $`Quercus lobata`
+<p><code>
+## $`Quercus lobata`
 ## [1] "California white oak" "valley oak"
-</code></pre>
+</code></p>
 
-<pre><code class="r">comm2sci("valley oak", db="itis")
-</code></pre>
+<p><code>r
+comm2sci("valley oak", db="itis")
+</code></p>
 
-<pre><code>## $`valley oak`
+<p><code>
+## $`valley oak`
 ## [1] "Quercus lobata"
-</code></pre>
+</code></p>
 
-<h2>end</h2>
+<h2 id="end">end</h2>
 
-<blockquote><p>That's it! Thanks for watching...</p></blockquote>
+<blockquote>
+  <p>That’s it! Thanks for watching…</p>
+</blockquote>
 
   </article>
 
@@ -515,12 +563,12 @@ out[,c(1:5)]
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">ropensci screencasts</h2>
+    <h2 class="footer-heading">rOpenSci Screencasts</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>ropensci screencasts</li>
+          <li>rOpenSci Screencasts</li>
           <li><a href="mailto:"></a></li>
         </ul>
       </div>
