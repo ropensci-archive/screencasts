@@ -1,0 +1,240 @@
+---
+layout: post
+title: elastic
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+	comment = "#>", 
+	collapse = TRUE,
+	warning = FALSE, 
+	message = FALSE
+)
+```
+
+Welcome to the `elastic` screencast!
+
+Follow along below in your favorite R client.
+
+<!-- iframe when ready -->
+
+
+elastic screencast
+==========
+
+## Intro
+
+> Hi, I'm Scott Chamberlain
+
+> In this screencast, I'll do a brief intoduction to the `elastic` package - an `R` client for [Elasticsearch](https://www.elastic.co/products/elasticsearch)
+
+> You can install elastic from [CRAN](http://cran.rstudio.com/web/packages/elastic), or install the [development version from GitHub](https://github.com/ropensci/elastic).
+
+> `elastic` allows you to interact with any Elasticsearch installation
+
+> Elasticsearch is a powerful database, with a built in HTTP API for easy integration, like 
+in this package, a powerful query engine, and easy data input b/c you don't have to 
+specify a schema manaully beforehand
+
+> I'll walk you through a variety of things you can do with elastic
+
+## Installation and load
+
+```{r eval=FALSE}
+install.packages("elastic")
+```
+
+```{r message=FALSE}
+library("elastic")
+```
+
+## Install and start Elasticsearch
+
+* [Elasticsearch installation help](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/_installation.html)
+* Navigate to elasticsearch: `cd /usr/local/elasticsearch`
+* Start elasticsearch: `bin/elasticsearch`
+
+## Initialize connection
+
+> `connect()` is used before doing anything else to set the connection details to your remote or local elasticsearch store
+
+```{r}
+connect()
+```
+
+> On package load, base url and port set to `http://127.0.0.1` and `9200`
+
+## Elasticsearch management
+
+### Cat
+
+> Get list of cat endpoints
+
+```{r}
+cat_()
+```
+
+> E.g., Get list of indices
+
+```{r}
+cat_indices()
+```
+
+### Cluster info
+
+> Get list of cat endpoints
+
+```{r}
+cluster_health()
+```
+
+### Node info
+
+> E.g., Get list of indices
+
+```{r eval=FALSE}
+nodes_info()
+```
+
+### Node info
+
+> E.g., Get list of indices
+
+```{r eval=FALSE}
+nodes_info()
+```
+
+## Indices
+
+* `index_create()`
+* `index_delete()`
+* `index_exists()`
+* `index_get()`
+* `index_settings()`
+* `index_stats()`
+* `index_status()`
+* ...
+
+> Create an index
+
+```{r echo=FALSE}
+index_delete("animals")
+```
+
+```{r}
+index_create("animals")
+```
+
+```{r}
+index_get("animals")
+```
+
+## Documents
+
+* `docs_create()`
+* `docs_get()`
+* `docs_mget()`
+* `docs_delete()`
+* `docs_bulk()`
+
+> Create a few documents
+
+```{r}
+docs_create(index='animals', type='bears', id=1, body=list(id="12345", name="big bear"))
+docs_create(index='animals', type='lions', id=1, body=list(id="6789", name="scary lion!"))
+```
+
+> The documents are there now, get one
+
+```{r}
+docs_get(index='animals', type='bears', id=1)
+```
+
+> Get multiple documents at once
+
+```{r}
+docs_mget(index_type_id=list(c("animals","bears",1), c("animals","lions",1)))
+```
+
+## Search
+
+### First, get data
+
+> Elasticsearch has a bulk load API to load data in fast. The format is weird - it's sort of JSON. I include a few data sets in `elastic` so it's easy to get up and running, and so when you run examples in this package they'll actually run the same way (hopefully).
+
+> Shakespeare data
+
+```{r eval=FALSE}
+shakespeare <- system.file("examples", "shakespeare_data.json", package = "elastic")
+```
+
+> Then load the data into Elasticsearch:
+
+```{r eval=FALSE}
+docs_bulk(shakespeare)
+```
+
+### Search the data
+
+> Search the `shakespeare` index and only return 1 result
+
+```{r}
+Search(index = "shakespeare", size = 1)$hits$hits
+```
+
+> Search the `shakespeare` index, and the `scene` document type, and query for _york_
+
+```{r}
+Search(index="shakespeare", type="scene",
+       q="york", size=2, fields = 'speaker')$hits$hits
+```
+
+> Fuzzy search
+
+```{r}
+Search(index="shakespeare", q="text_entry:ma~")$hits$total
+```
+
+> Ranges, here where line_id value is between 10 and 20
+
+```{r}
+Search(index="shakespeare", q="line_id:[10 TO 20]")$hits$total
+```
+
+> Give explanation of search in result
+
+```{r}
+Search(index="shakespeare", size=1, explain=TRUE)
+```
+
+> Aggregations
+
+```{r}
+aggs <- list(aggs = list(stats = list(terms = list(field = "text_entry"))))
+res <- Search(index="shakespeare", body=aggs)
+plyr::ldply(res$aggregations$stats$buckets, data.frame)
+```
+
+> You can also pass in a json query with newlines, much easier to read
+
+```{r, eval=FALSE}
+aggs <- '{
+    "aggs": {
+        "stats" : {
+            "terms" : {
+                "field" : "text_entry"
+            }
+        }
+    }
+}'
+Search(index="shakespeare", body=aggs)
+```
+
+## More info
+
+* Look out for `elasticdsl` package, which will make it much easier to perform queries
+against Elaticsearch
+
+## end
+
+> That's it! Thanks for watching...

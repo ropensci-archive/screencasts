@@ -254,62 +254,64 @@
 
 <h2>Installation and load</h2>
 <div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>taxize<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2>Taxonomic identifiers</h2>
 <div class="highlight"><pre><code class="language-r" data-lang="r">get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $ncbi
-## Chironomus riparius
-##            &quot;315576&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;uid&quot;
-##
-## attr(,&quot;class&quot;)
-## [1] &quot;ids&quot;
+<span class="c1">#&gt; $ncbi</span>
+<span class="c1">#&gt; Chironomus riparius </span>
+<span class="c1">#&gt;            &quot;315576&quot; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;uid&quot;</span>
+<span class="c1">#&gt; attr(,&quot;match&quot;)</span>
+<span class="c1">#&gt; [1] &quot;found&quot;</span>
+<span class="c1">#&gt; attr(,&quot;uri&quot;)</span>
+<span class="c1">#&gt; [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;ids&quot;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">get_ids<span class="p">(</span>names<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> <span class="s">&quot;Poa annua&quot;</span><span class="p">),</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">))</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">##      colid      name    rank        status
-## 1  9791858 Poa annua Species accepted name
-## 2 10003530 Poa annua Species       synonym
-##                                             source    acc_name
-## 1 WCSP: World Checklist of Selected Plant Families        &lt;NA&gt;
-## 2 WCSP: World Checklist of Selected Plant Families Poa infirma
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $ncbi
-## Chironomus riparius           Poa annua
-##            &quot;315576&quot;             &quot;93036&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot; &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;
-## [2] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/93036&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;uid&quot;
-##
-## $itis
-## Chironomus riparius           Poa annua
-##            &quot;129313&quot;             &quot;41107&quot;
-## attr(,&quot;match&quot;)
-## [1] &quot;found&quot; &quot;found&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=129313&quot;
-## [2] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=41107&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;tsn&quot;
-##
-## $col
-## Chironomus riparius           Poa annua
-##           &quot;8663146&quot;           &quot;9791858&quot;
-## attr(,&quot;class&quot;)
-## [1] &quot;colid&quot;
-## attr(,&quot;uri&quot;)
-## [1] &quot;http://www.catalogueoflife.org/col/details/species/id/8663146&quot;
-## [2] &quot;http://www.catalogueoflife.org/col/details/species/id/9791858&quot;
-##
-## attr(,&quot;class&quot;)
-## [1] &quot;ids&quot;
+<span class="c1">#&gt;      colid      name    rank        status</span>
+<span class="c1">#&gt; 1 19274115 Poa annua Species accepted name</span>
+<span class="c1">#&gt; 2 19274116 Poa annua Species       synonym</span>
+<span class="c1">#&gt;                                             source    acc_name</span>
+<span class="c1">#&gt; 1 WCSP: World Checklist of Selected Plant Families        &lt;NA&gt;</span>
+<span class="c1">#&gt; 2 WCSP: World Checklist of Selected Plant Families Poa infirma</span>
+<span class="c1">#&gt; $ncbi</span>
+<span class="c1">#&gt; Chironomus riparius           Poa annua </span>
+<span class="c1">#&gt;            &quot;315576&quot;             &quot;93036&quot; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;uid&quot;</span>
+<span class="c1">#&gt; attr(,&quot;match&quot;)</span>
+<span class="c1">#&gt; [1] &quot;found&quot; &quot;found&quot;</span>
+<span class="c1">#&gt; attr(,&quot;uri&quot;)</span>
+<span class="c1">#&gt; [1] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/315576&quot;</span>
+<span class="c1">#&gt; [2] &quot;http://www.ncbi.nlm.nih.gov/taxonomy/93036&quot; </span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; $itis</span>
+<span class="c1">#&gt; Chironomus riparius           Poa annua </span>
+<span class="c1">#&gt;            &quot;129313&quot;             &quot;41107&quot; </span>
+<span class="c1">#&gt; attr(,&quot;match&quot;)</span>
+<span class="c1">#&gt; [1] &quot;found&quot; &quot;found&quot;</span>
+<span class="c1">#&gt; attr(,&quot;uri&quot;)</span>
+<span class="c1">#&gt; [1] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=129313&quot;</span>
+<span class="c1">#&gt; [2] &quot;http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=41107&quot; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;tsn&quot;</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; $col</span>
+<span class="c1">#&gt; Chironomus riparius           Poa annua </span>
+<span class="c1">#&gt;           &quot;8663146&quot;          &quot;19274115&quot; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;colid&quot;</span>
+<span class="c1">#&gt; attr(,&quot;match&quot;)</span>
+<span class="c1">#&gt; [1] &quot;found&quot; &quot;found&quot;</span>
+<span class="c1">#&gt; attr(,&quot;uri&quot;)</span>
+<span class="c1">#&gt; [1] &quot;http://www.catalogueoflife.org/col/details/species/id/8663146&quot; </span>
+<span class="c1">#&gt; [2] &quot;http://www.catalogueoflife.org/col/details/species/id/19274115&quot;</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;ids&quot;</span>
 </code></pre></div>
 <h2>Hierarchies</h2>
 
@@ -317,79 +319,79 @@
 <p>and now taxonomic hieararchies</p>
 </blockquote>
 <div class="highlight"><pre><code class="language-r" data-lang="r">classification<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $`Chironomus riparius`
-##                         name         rank
-## 1         cellular organisms      no rank
-## 2                  Eukaryota superkingdom
-## 3               Opisthokonta      no rank
-## 4                    Metazoa      kingdom
-## 5                  Eumetazoa      no rank
-## 6                  Bilateria      no rank
-## 7                Protostomia      no rank
-## 8                  Ecdysozoa      no rank
-## 9              Panarthropoda      no rank
-## 10                Arthropoda       phylum
-## 11               Mandibulata      no rank
-## 12              Pancrustacea      no rank
-## 13                  Hexapoda   superclass
-## 14                   Insecta        class
-## 15                Dicondylia      no rank
-## 16                 Pterygota      no rank
-## 17                  Neoptera     subclass
-## 18             Endopterygota   infraclass
-## 19                   Diptera        order
-## 20                Nematocera     suborder
-## 21              Culicomorpha   infraorder
-## 22             Chironomoidea  superfamily
-## 23              Chironomidae       family
-## 24              Chironominae    subfamily
-## 25               Chironomini        tribe
-## 26                Chironomus        genus
-## 27 Chironomus incertae sedis      no rank
-## 28       Chironomus riparius      species
-##
-## attr(,&quot;class&quot;)
-## [1] &quot;classification&quot;
-## attr(,&quot;db&quot;)
-## [1] &quot;ncbi&quot;
+<span class="c1">#&gt; $`Chironomus riparius`</span>
+<span class="c1">#&gt;                         name         rank      id</span>
+<span class="c1">#&gt; 1         cellular organisms      no rank  131567</span>
+<span class="c1">#&gt; 2                  Eukaryota superkingdom    2759</span>
+<span class="c1">#&gt; 3               Opisthokonta      no rank   33154</span>
+<span class="c1">#&gt; 4                    Metazoa      kingdom   33208</span>
+<span class="c1">#&gt; 5                  Eumetazoa      no rank    6072</span>
+<span class="c1">#&gt; 6                  Bilateria      no rank   33213</span>
+<span class="c1">#&gt; 7                Protostomia      no rank   33317</span>
+<span class="c1">#&gt; 8                  Ecdysozoa      no rank 1206794</span>
+<span class="c1">#&gt; 9              Panarthropoda      no rank   88770</span>
+<span class="c1">#&gt; 10                Arthropoda       phylum    6656</span>
+<span class="c1">#&gt; 11               Mandibulata      no rank  197563</span>
+<span class="c1">#&gt; 12              Pancrustacea      no rank  197562</span>
+<span class="c1">#&gt; 13                  Hexapoda   superclass    6960</span>
+<span class="c1">#&gt; 14                   Insecta        class   50557</span>
+<span class="c1">#&gt; 15                Dicondylia      no rank   85512</span>
+<span class="c1">#&gt; 16                 Pterygota      no rank    7496</span>
+<span class="c1">#&gt; 17                  Neoptera     subclass   33340</span>
+<span class="c1">#&gt; 18             Endopterygota   infraclass   33392</span>
+<span class="c1">#&gt; 19                   Diptera        order    7147</span>
+<span class="c1">#&gt; 20                Nematocera     suborder    7148</span>
+<span class="c1">#&gt; 21              Culicomorpha   infraorder   43786</span>
+<span class="c1">#&gt; 22             Chironomoidea  superfamily   41828</span>
+<span class="c1">#&gt; 23              Chironomidae       family    7149</span>
+<span class="c1">#&gt; 24              Chironominae    subfamily   54970</span>
+<span class="c1">#&gt; 25               Chironomini        tribe   72530</span>
+<span class="c1">#&gt; 26                Chironomus        genus    7150</span>
+<span class="c1">#&gt; 27 Chironomus incertae sedis      no rank 1165752</span>
+<span class="c1">#&gt; 28       Chironomus riparius      species  315576</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;classification&quot;</span>
+<span class="c1">#&gt; attr(,&quot;db&quot;)</span>
+<span class="c1">#&gt; [1] &quot;ncbi&quot;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">classification<span class="p">(</span>get_uid<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">))</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $`315576`
-##                         name         rank
-## 1         cellular organisms      no rank
-## 2                  Eukaryota superkingdom
-## 3               Opisthokonta      no rank
-## 4                    Metazoa      kingdom
-## 5                  Eumetazoa      no rank
-## 6                  Bilateria      no rank
-## 7                Protostomia      no rank
-## 8                  Ecdysozoa      no rank
-## 9              Panarthropoda      no rank
-## 10                Arthropoda       phylum
-## 11               Mandibulata      no rank
-## 12              Pancrustacea      no rank
-## 13                  Hexapoda   superclass
-## 14                   Insecta        class
-## 15                Dicondylia      no rank
-## 16                 Pterygota      no rank
-## 17                  Neoptera     subclass
-## 18             Endopterygota   infraclass
-## 19                   Diptera        order
-## 20                Nematocera     suborder
-## 21              Culicomorpha   infraorder
-## 22             Chironomoidea  superfamily
-## 23              Chironomidae       family
-## 24              Chironominae    subfamily
-## 25               Chironomini        tribe
-## 26                Chironomus        genus
-## 27 Chironomus incertae sedis      no rank
-## 28       Chironomus riparius      species
-##
-## attr(,&quot;class&quot;)
-## [1] &quot;classification&quot;
-## attr(,&quot;db&quot;)
-## [1] &quot;ncbi&quot;
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># out &lt;- get_ids(names=&quot;Poa annua&quot;, db = c(&#39;ncbi&#39;,&#39;itis&#39;,&#39;col&#39;,&#39;eol&#39;,&#39;tropicos&#39;))</span>
-<span class="c1"># classification(out)</span>
+<span class="c1">#&gt; $`315576`</span>
+<span class="c1">#&gt;                         name         rank      id</span>
+<span class="c1">#&gt; 1         cellular organisms      no rank  131567</span>
+<span class="c1">#&gt; 2                  Eukaryota superkingdom    2759</span>
+<span class="c1">#&gt; 3               Opisthokonta      no rank   33154</span>
+<span class="c1">#&gt; 4                    Metazoa      kingdom   33208</span>
+<span class="c1">#&gt; 5                  Eumetazoa      no rank    6072</span>
+<span class="c1">#&gt; 6                  Bilateria      no rank   33213</span>
+<span class="c1">#&gt; 7                Protostomia      no rank   33317</span>
+<span class="c1">#&gt; 8                  Ecdysozoa      no rank 1206794</span>
+<span class="c1">#&gt; 9              Panarthropoda      no rank   88770</span>
+<span class="c1">#&gt; 10                Arthropoda       phylum    6656</span>
+<span class="c1">#&gt; 11               Mandibulata      no rank  197563</span>
+<span class="c1">#&gt; 12              Pancrustacea      no rank  197562</span>
+<span class="c1">#&gt; 13                  Hexapoda   superclass    6960</span>
+<span class="c1">#&gt; 14                   Insecta        class   50557</span>
+<span class="c1">#&gt; 15                Dicondylia      no rank   85512</span>
+<span class="c1">#&gt; 16                 Pterygota      no rank    7496</span>
+<span class="c1">#&gt; 17                  Neoptera     subclass   33340</span>
+<span class="c1">#&gt; 18             Endopterygota   infraclass   33392</span>
+<span class="c1">#&gt; 19                   Diptera        order    7147</span>
+<span class="c1">#&gt; 20                Nematocera     suborder    7148</span>
+<span class="c1">#&gt; 21              Culicomorpha   infraorder   43786</span>
+<span class="c1">#&gt; 22             Chironomoidea  superfamily   41828</span>
+<span class="c1">#&gt; 23              Chironomidae       family    7149</span>
+<span class="c1">#&gt; 24              Chironominae    subfamily   54970</span>
+<span class="c1">#&gt; 25               Chironomini        tribe   72530</span>
+<span class="c1">#&gt; 26                Chironomus        genus    7150</span>
+<span class="c1">#&gt; 27 Chironomus incertae sedis      no rank 1165752</span>
+<span class="c1">#&gt; 28       Chironomus riparius      species  315576</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; attr(,&quot;class&quot;)</span>
+<span class="c1">#&gt; [1] &quot;classification&quot;</span>
+<span class="c1">#&gt; attr(,&quot;db&quot;)</span>
+<span class="c1">#&gt; [1] &quot;ncbi&quot;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">out <span class="o">&lt;-</span> get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">,</span><span class="s">&#39;eol&#39;</span><span class="p">,</span><span class="s">&#39;tropicos&#39;</span><span class="p">))</span>
+classification<span class="p">(</span>out<span class="p">)</span>
 </code></pre></div>
 <h2>Check name spelling</h2>
 
@@ -399,10 +401,10 @@
 <div class="highlight"><pre><code class="language-r" data-lang="r">mynames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Helianthus annus&quot;</span><span class="p">,</span> <span class="s">&quot;Poa anua&quot;</span><span class="p">,</span> <span class="s">&quot;Pinus contort&quot;</span><span class="p">)</span>
 out <span class="o">&lt;-</span> tnrs<span class="p">(</span>query <span class="o">=</span> mynames<span class="p">,</span> <span class="kn">source</span><span class="o">=</span><span class="s">&quot;iPlant_TNRS&quot;</span><span class="p">)</span>
 out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)]</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">##      submittedname      acceptedname    sourceid score       matchedname
-## 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta
-## 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus
-## 3         Poa anua         Poa annua iPlant_TNRS  0.96         Poa annua
+<span class="c1">#&gt;      submittedname      acceptedname    sourceid score       matchedname</span>
+<span class="c1">#&gt; 1    Pinus contort    Pinus contorta iPlant_TNRS  0.98    Pinus contorta</span>
+<span class="c1">#&gt; 2 Helianthus annus Helianthus annuus iPlant_TNRS  0.97 Helianthus annuus</span>
+<span class="c1">#&gt; 3         Poa anua         Poa annua iPlant_TNRS  0.96         Poa annua</span>
 </code></pre></div>
 <h2>Synonyms</h2>
 
@@ -412,54 +414,54 @@ out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><sp
 <p>The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names</p>
 </blockquote>
 <div class="highlight"><pre><code class="language-r" data-lang="r">synonyms<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span><span class="s">&#39;Pinus contorta&#39;</span><span class="p">,</span><span class="s">&#39;Puma concolor&#39;</span><span class="p">),</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $`Poa annua`
-##                           name    tsn
-## 1      Poa annua var. aquatica 538978
-## 2       Poa annua var. reptans 538979
-## 3                  Aira pumila 785854
-## 4             Catabrosa pumila 787993
-## 5               Ochlopoa annua 791574
-## 6               Poa aestivalis 793946
-## 7                   Poa algida 793954
-## 8         Poa annua var. annua 802116
-## 9     Poa annua var. eriolepis 802117
-## 10 Poa annua var. rigidiuscula 802119
-## 11        Poa annua f. reptans 803667
-##
-## $`Pinus contorta`
-##      name    tsn
-## 1 nomatch 183327
-##
-## $`Puma concolor`
-##             name    tsn
-## 1 Felis concolor 180587
+<span class="c1">#&gt; $`Poa annua`</span>
+<span class="c1">#&gt;                           name    tsn</span>
+<span class="c1">#&gt; 1      Poa annua var. aquatica 538978</span>
+<span class="c1">#&gt; 2       Poa annua var. reptans 538979</span>
+<span class="c1">#&gt; 3                  Aira pumila 785854</span>
+<span class="c1">#&gt; 4             Catabrosa pumila 787993</span>
+<span class="c1">#&gt; 5               Ochlopoa annua 791574</span>
+<span class="c1">#&gt; 6               Poa aestivalis 793946</span>
+<span class="c1">#&gt; 7                   Poa algida 793954</span>
+<span class="c1">#&gt; 8         Poa annua var. annua 802116</span>
+<span class="c1">#&gt; 9     Poa annua var. eriolepis 802117</span>
+<span class="c1">#&gt; 10 Poa annua var. rigidiuscula 802119</span>
+<span class="c1">#&gt; 11        Poa annua f. reptans 803667</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; $`Pinus contorta`</span>
+<span class="c1">#&gt;      name    tsn</span>
+<span class="c1">#&gt; 1 nomatch 183327</span>
+<span class="c1">#&gt; </span>
+<span class="c1">#&gt; $`Puma concolor`</span>
+<span class="c1">#&gt;             name    tsn</span>
+<span class="c1">#&gt; 1 Felis concolor 180587</span>
 </code></pre></div>
 <h2>Downstream</h2>
 
 <blockquote>
-<p>Sometimes you just wann know &quot;what species are in this genus!!!&quot;</p>
+<p>Sometimes you want know &quot;what species are in this genus!&quot;</p>
 </blockquote>
 <div class="highlight"><pre><code class="language-r" data-lang="r">col_downstream<span class="p">(</span>name <span class="o">=</span> <span class="s">&quot;Apis&quot;</span><span class="p">,</span> downto<span class="o">=</span><span class="s">&quot;Species&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">##   childtaxa_id     childtaxa_name childtaxa_rank
-## 1      6971712 Apis andreniformis        Species
-## 2      6971713        Apis cerana        Species
-## 3      6971714       Apis dorsata        Species
-## 4      6971715        Apis florea        Species
-## 5      6971716 Apis koschevnikovi        Species
-## 6      6845885     Apis mellifera        Species
-## 7      6971717   Apis nigrocincta        Species
+<span class="c1">#&gt;   childtaxa_id     childtaxa_name childtaxa_rank</span>
+<span class="c1">#&gt; 1      6971712 Apis andreniformis        Species</span>
+<span class="c1">#&gt; 2      6971713        Apis cerana        Species</span>
+<span class="c1">#&gt; 3      6971714       Apis dorsata        Species</span>
+<span class="c1">#&gt; 4      6971715        Apis florea        Species</span>
+<span class="c1">#&gt; 5      6971716 Apis koschevnikovi        Species</span>
+<span class="c1">#&gt; 6      6845885     Apis mellifera        Species</span>
+<span class="c1">#&gt; 7      6971717   Apis nigrocincta        Species</span>
 </code></pre></div>
 <h2>Common from scientific and vice versa</h2>
 
 <blockquote>
 <p>You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">sci2comm<span class="p">(</span><span class="s">&quot;Quercus lobata&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">,)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $`Quercus lobata`
-## [1] &quot;California white oak&quot; &quot;valley oak&quot;
+<div class="highlight"><pre><code class="language-r" data-lang="r">sci2comm<span class="p">(</span><span class="s">&quot;Quercus lobata&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
+<span class="c1">#&gt; $`Quercus lobata`</span>
+<span class="c1">#&gt; [1] &quot;California white oak&quot; &quot;valley oak&quot;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">comm2sci<span class="p">(</span><span class="s">&quot;valley oak&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## $`valley oak`
-## [1] &quot;Quercus lobata&quot;
+<span class="c1">#&gt; $`valley oak`</span>
+<span class="c1">#&gt; [1] &quot;Quercus lobata&quot;</span>
 </code></pre></div>
 <h2>end</h2>
 
