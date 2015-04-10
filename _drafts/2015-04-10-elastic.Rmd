@@ -5,19 +5,18 @@ title: elastic
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
-	comment = "#>", 
+	comment = "#>",
 	collapse = TRUE,
-	warning = FALSE, 
+	warning = FALSE,
 	message = FALSE
 )
 ```
 
 Welcome to the `elastic` screencast!
 
-Follow along below in your favorite R client.
+Follow along below in your favorite R client. I'll be using the RStudio IDE.
 
-<!-- iframe when ready -->
-
+<iframe src="//player.vimeo.com/video/124659179" width="600" height="381" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 elastic screencast
 ==========
@@ -32,11 +31,11 @@ elastic screencast
 
 > `elastic` allows you to interact with any Elasticsearch installation
 
-> Elasticsearch is a powerful database, with a built in HTTP API for easy integration, like 
-in this package, a powerful query engine, and easy data input b/c you don't have to 
-specify a schema manaully beforehand
+> What is Elasticsearch? Elasticsearch is a powerful database, with a built in HTTP
+API for easy integration (like in this package), a powerful query engine, and easy
+data input b/c you don't have to specify a schema manaully beforehand
 
-> I'll walk you through a variety of things you can do with elastic
+> I'll walk you through a variety of things you can do with the elastic R package
 
 ## Installation and load
 
@@ -50,9 +49,14 @@ library("elastic")
 
 ## Install and start Elasticsearch
 
-* [Elasticsearch installation help](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/_installation.html)
+* [Elasticsearch installation help](http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
 * Navigate to elasticsearch: `cd /usr/local/elasticsearch`
 * Start elasticsearch: `bin/elasticsearch`
+
+
+## Security
+
+> Out of the box, Elasticsearch is not secure. Be careful on public IP addresses.
 
 ## Initialize connection
 
@@ -63,6 +67,10 @@ connect()
 ```
 
 > On package load, base url and port set to `http://127.0.0.1` and `9200`
+If you don't need a port, set the port to NULL.
+
+> Authentication: for now basic authentication is supported in the `connect()`
+function.
 
 ## Elasticsearch management
 
@@ -74,7 +82,7 @@ connect()
 cat_()
 ```
 
-> E.g., Get list of indices
+> Get list of indices
 
 ```{r}
 cat_indices()
@@ -82,7 +90,7 @@ cat_indices()
 
 ### Cluster info
 
-> Get list of cat endpoints
+> Get cluster health information
 
 ```{r}
 cluster_health()
@@ -90,29 +98,25 @@ cluster_health()
 
 ### Node info
 
-> E.g., Get list of indices
+> Get node information
 
 ```{r eval=FALSE}
 nodes_info()
 ```
 
-### Node info
-
-> E.g., Get list of indices
-
-```{r eval=FALSE}
-nodes_info()
-```
+> You can do things like stop and start nodes, change their settings and so on.
 
 ## Indices
+
+> An index is like a database, and a type within an index is like a table within
+a database. Then documents within types, sort of like rows in a table.
+There are many functions to interact with indices
 
 * `index_create()`
 * `index_delete()`
 * `index_exists()`
 * `index_get()`
-* `index_settings()`
 * `index_stats()`
-* `index_status()`
 * ...
 
 > Create an index
@@ -130,6 +134,8 @@ index_get("animals")
 ```
 
 ## Documents
+
+> Documents are the individual pieces of data within each index
 
 * `docs_create()`
 * `docs_get()`
@@ -195,7 +201,7 @@ Search(index="shakespeare", type="scene",
 Search(index="shakespeare", q="text_entry:ma~")$hits$total
 ```
 
-> Ranges, here where line_id value is between 10 and 20
+> Ranges, here where `line_id` value is between 10 and 20
 
 ```{r}
 Search(index="shakespeare", q="line_id:[10 TO 20]")$hits$total
@@ -207,34 +213,14 @@ Search(index="shakespeare", q="line_id:[10 TO 20]")$hits$total
 Search(index="shakespeare", size=1, explain=TRUE)
 ```
 
-> Aggregations
-
-```{r}
-aggs <- list(aggs = list(stats = list(terms = list(field = "text_entry"))))
-res <- Search(index="shakespeare", body=aggs)
-plyr::ldply(res$aggregations$stats$buckets, data.frame)
-```
-
-> You can also pass in a json query with newlines, much easier to read
-
-```{r, eval=FALSE}
-aggs <- '{
-    "aggs": {
-        "stats" : {
-            "terms" : {
-                "field" : "text_entry"
-            }
-        }
-    }
-}'
-Search(index="shakespeare", body=aggs)
-```
-
 ## More info
 
-* Look out for `elasticdsl` package, which will make it much easier to perform queries
-against Elaticsearch
+> Look out for `elasticdsl` package, which will make it much easier to perform queries against Elasticsearch
+
+> A good place to ask questions/get involved is in the repo at ropensci/elastic or
+in our discussion forum https://discuss.ropensci.org
 
 ## end
 
 > That's it! Thanks for watching...
+

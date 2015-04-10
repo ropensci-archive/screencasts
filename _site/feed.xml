@@ -6,9 +6,635 @@
     <atom:link href="http://ropensci.github.io/screencasts/feed.xml" rel="self" type="application/rss+xml" />
     <description>rOpenSci Screencasts</description>
     <language>en-us</language>
-    <pubDate>Wed, 01 Apr 2015 18:24:57 -0700</pubDate>
-    <lastBuildDate>Wed, 01 Apr 2015 18:24:57 -0700</lastBuildDate>
+    <pubDate>Fri, 10 Apr 2015 13:42:32 -0700</pubDate>
+    <lastBuildDate>Fri, 10 Apr 2015 13:42:32 -0700</lastBuildDate>
 
+    
+      <item>
+        <title>elastic</title>
+        <link>http://ropensci.github.io/screencasts/elastic/</link>
+        <pubDate>Fri, 10 Apr 2015 00:00:00 -0700</pubDate>
+        <author>Scott Chamberlain</author>
+        <description>&lt;p&gt;Welcome to the &lt;code&gt;elastic&lt;/code&gt; screencast!&lt;/p&gt;
+
+&lt;p&gt;Follow along below in your favorite R client. I&amp;#39;ll be using the RStudio IDE.&lt;/p&gt;
+
+&lt;iframe src=&quot;//player.vimeo.com/video/124659179&quot; width=&quot;600&quot; height=&quot;381&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;elastic screencast&lt;/h1&gt;
+
+&lt;h2&gt;Intro&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hi, I&amp;#39;m Scott Chamberlain&lt;/p&gt;
+
+&lt;p&gt;In this screencast, I&amp;#39;ll do a brief intoduction to the &lt;code&gt;elastic&lt;/code&gt; package - an &lt;code&gt;R&lt;/code&gt; client for &lt;a href=&quot;https://www.elastic.co/products/elasticsearch&quot;&gt;Elasticsearch&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can install elastic from &lt;a href=&quot;http://cran.rstudio.com/web/packages/elastic&quot;&gt;CRAN&lt;/a&gt;, or install the &lt;a href=&quot;https://github.com/ropensci/elastic&quot;&gt;development version from GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;elastic&lt;/code&gt; allows you to interact with any Elasticsearch installation&lt;/p&gt;
+
+&lt;p&gt;What is Elasticsearch? Elasticsearch is a powerful database, with a built in HTTP
+API for easy integration (like in this package), a powerful query engine, and easy
+data input b/c you don&amp;#39;t have to specify a schema manaully beforehand&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll walk you through a variety of things you can do with the elastic R package&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;Installation and load&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;elastic&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;elastic&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Install and start Elasticsearch&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html&quot;&gt;Elasticsearch installation help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Navigate to elasticsearch: &lt;code&gt;cd /usr/local/elasticsearch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start elasticsearch: &lt;code&gt;bin/elasticsearch&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Security&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Out of the box, Elasticsearch is not secure. Be careful on public IP addresses.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;Initialize connection&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;connect()&lt;/code&gt; is used before doing anything else to set the connection details to your remote or local elasticsearch store&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;connect&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; uri:       http://127.0.0.1 &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; port:      9200 &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; username:  NULL &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; password:  NULL &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; elasticsearch details:   &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    status:                  200 &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    name:                    Chamber &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    Elasticsearch version:   1.5.1 &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    ES version timestamp:    2015-04-09T13:41:35Z &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    lucene version:          4.10.4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;On package load, base url and port set to &lt;code&gt;http://127.0.0.1&lt;/code&gt; and &lt;code&gt;9200&lt;/code&gt;
+If you don&amp;#39;t need a port, set the port to NULL.&lt;/p&gt;
+
+&lt;p&gt;Authentication: for now basic authentication is supported in the &lt;code&gt;connect()&lt;/code&gt;
+function.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;Elasticsearch management&lt;/h2&gt;
+
+&lt;h3&gt;Cat&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Get list of cat endpoints&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;cat_&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; =^.^=&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/allocation&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/shards/{index}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/master&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/nodes&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/indices&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/indices/{index}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/segments&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/segments/{index}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/count&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/count/{index}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/recovery&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/recovery/{index}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/health&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/pending_tasks&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/aliases&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/aliases/{alias}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/thread_pool&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/plugins&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/fielddata&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; /_cat/fielddata/{fields}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Get list of indices&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;cat_indices&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open flowers               5 1     150     0  43.6kb  43.6kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_m               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open flights               5 1  156766     0  21.3mb  21.3mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open asdfdf                5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open things2               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open twitter               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open -----                 5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open afjaljfalsfjalksdfadf 5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open arrests               5 1      50     0  23.9kb  23.9kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open animals               5 1       2     0   3.1kb   3.1kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open diam                  5 1   53940     0   6.6mb   6.6mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open logstash-2018.02.28   5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff                 5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open gbif                  5 1     899     0     1mb     1mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_y               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open gbifnewgeo            5 1       2     0   5.8kb   5.8kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open geoshape              5 1     222     0  42.9kb  42.9kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_x               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open afjaljfalsfjalksdf    5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_q               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open diamfromlist          5 1   53940     0     6mb     6mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open test_close_open       5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_d               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open plos                  5 1    1000     0 413.4kb 413.4kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_h               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_c               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_s               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open diamonds              5 1    7500     0     1mb     1mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open pos                   5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open shakespeare2          5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_g               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open geonames              5 1 6646030 20005   1.9gb   1.9gb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open gbifgeo               5 1     600     0 861.9kb 861.9kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open yep                   5 1       2     0   7.2kb   7.2kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open diamonds_small        5 1    1000     0 209.2kb 209.2kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open iris                  5 1     150     0  40.1kb  40.1kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_k               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open things                5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open shakespeare           5 1    5000     0     1mb     1mb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open stuff_j               5 1       0     0    575b    575b &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open gbifgeopoint          5 1     600     0 953.5kb 953.5kb &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; yellow open hello                 5 1      32     0  33.6kb  33.6kb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Cluster info&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Get cluster health information&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;cluster_health&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $cluster_name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;elasticsearch&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $status&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;yellow&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $timed_out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] FALSE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $number_of_nodes&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $number_of_data_nodes&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $active_primary_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 210&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $active_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 210&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $relocating_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 0&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $initializing_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 0&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $unassigned_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 210&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $number_of_pending_tasks&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Node info&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Get node information&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;nodes_info&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You can do things like stop and start nodes, change their settings and so on.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;Indices&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An index is like a database, and a type within an index is like a table within
+a database. Then documents within types, sort of like rows in a table.
+There are many functions to interact with indices&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;index_create()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index_delete()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index_exists()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index_get()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index_stats()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Create an index&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#&amp;gt; $acknowledged
+#&amp;gt; [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;index_create&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;animals&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $acknowledged&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;index_get&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;animals&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$aliases&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; named list()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$mappings&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; named list()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$creation_date&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1428698531452&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$number_of_shards&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;5&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$number_of_replicas&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$version&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$version$created&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1050199&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$settings$index$uuid&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;TLYQm-HRRBaag_dmdNDdXA&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $animals$warmers&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; named list()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Documents&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Documents are the individual pieces of data within each index&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docs_create()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docs_get()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docs_mget()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docs_delete()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docs_bulk()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Create a few documents&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;docs_create&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;animals&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bears&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; body&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;12345&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;big bear&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;animals&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;bears&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $created&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+docs_create&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;animals&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; body&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;6789&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;scary lion!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;animals&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;lions&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $created&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The documents are there now, get one&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;docs_get&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;animals&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bears&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;animals&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;bears&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $found&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_source`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_source`$id&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_source`$id[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;12345&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_source`$name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_source`$name[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;big bear&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Get multiple documents at once&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;docs_mget&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index_type_id&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;animals&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bears&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;animals&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;lions&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;animals&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;bears&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$found&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_source`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_source`$id&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_source`$id[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;12345&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_source`$name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[1]]$`_source`$name[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;big bear&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;animals&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;lions&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$found&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] TRUE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_source`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_source`$id&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_source`$id[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;6789&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_source`$name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $docs[[2]]$`_source`$name[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;scary lion!&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Search&lt;/h2&gt;
+
+&lt;h3&gt;First, get data&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Elasticsearch has a bulk load API to load data in fast. The format is weird - it&amp;#39;s sort of JSON. I include a few data sets in &lt;code&gt;elastic&lt;/code&gt; so it&amp;#39;s easy to get up and running, and so when you run examples in this package they&amp;#39;ll actually run the same way (hopefully).&lt;/p&gt;
+
+&lt;p&gt;Shakespeare data&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;shakespeare &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;system.file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;examples&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare_data.json&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; package &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;elastic&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Then load the data into Elasticsearch:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;docs_bulk&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;shakespeare&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Search the data&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Search the &lt;code&gt;shakespeare&lt;/code&gt; index and only return 1 result&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Search&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; size &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;shakespeare&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;line&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;4&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 6&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_score`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$line_id&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 5&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$play_name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;Henry IV&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$speech_number&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$line_number&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1.1.2&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$speaker&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;KING HENRY IV&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_source`$text_entry&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;Find we a time for frighted peace to pant,&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Search the &lt;code&gt;shakespeare&lt;/code&gt; index, and the &lt;code&gt;scene&lt;/code&gt; document type, and query for &lt;em&gt;york&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Search&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;scene&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       q&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;york&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; fields &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;speaker&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;shakespeare&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;scene&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;2588&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 6&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$`_score`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1.377465&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$fields&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$fields$speaker&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[1]]$fields$speaker[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;SIR WALTER BLUNT&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;shakespeare&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;scene&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;2634&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 6&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$`_score`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1.377465&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$fields&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$fields$speaker&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [[2]]$fields$speaker[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;ARCHBISHOP OF YORK&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fuzzy search&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Search&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; q&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text_entry:ma~&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;total
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 893&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ranges, here where &lt;code&gt;line_id&lt;/code&gt; value is between 10 and 20&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Search&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; q&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;line_id:[10 TO 20]&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;hits&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;total
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 11&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Give explanation of search in result&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Search&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;shakespeare&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; explain&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $took&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 12&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $timed_out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] FALSE&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_shards`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_shards`$total&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 5&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_shards`$successful&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 5&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $`_shards`$failed&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 0&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$total&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 5000&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$max_score&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_shard`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 0&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_node`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;JBp-up-tRgqWtTuYvLkjhA&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_index`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;shakespeare&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_type`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;line&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_id`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;4&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_version`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 6&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_score`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$line_id&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 5&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$play_name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;Henry IV&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$speech_number&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$line_number&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;1.1.2&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$speaker&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;KING HENRY IV&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_source`$text_entry&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;Find we a time for frighted peace to pant,&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$value&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$description&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;ConstantScore(*:*), product of:&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[1]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[1]]$value&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[1]]$description&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;boost&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[2]]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[2]]$value&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] 1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; $hits$hits[[1]]$`_explanation`$details[[2]]$description&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&amp;gt; [1] &amp;quot;queryNorm&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;More info&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Look out for &lt;code&gt;elasticdsl&lt;/code&gt; package, which will make it much easier to perform queries against Elasticsearch&lt;/p&gt;
+
+&lt;p&gt;A good place to ask questions/get involved is in the repo at ropensci/elastic or
+in our discussion forum https://discuss.ropensci.org&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;end&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;That&amp;#39;s it! Thanks for watching...&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+      </item>
     
       <item>
         <title>taxize</title>
