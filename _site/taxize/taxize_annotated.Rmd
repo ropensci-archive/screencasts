@@ -1,0 +1,107 @@
+taxize screencast
+==========
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+
+## Intro
+
+> Hi, I'm Scott Chamberlain
+
+> In this screencast, I'll do a brief intoduction to the taxize package - a taxonomic toolbelt for R
+
+> You can install taxize from [CRAN](http://cran.r-project.org/web/packages/taxize/index.html), or install the [development version from GitHub](https://github.com/ropensci/taxize).
+
+> taxize interacts with about 20 data sources
+
+```{r child="data_sources.md"}
+```
+
+> More will be added in the future
+
+> Taxonomic names are something many biologists have to deal with
+
+> I'll walk you through a variety of things you can do with taxize
+
+## Installation and load
+
+```{r installation, eval=FALSE}
+install.packages("taxize")
+```
+
+```{r}
+library(taxize)
+```
+
+## Taxonomic identifiers
+
+Much of what taxize does revolves around identifiers. Each data source taxize works with uses alphanumeric Ids to refer to each taxon. Once we have an ID, it's much easier to ask a data source for exactly what we want, and refer back to that taxon later.
+
+Let's get some IDs
+
+`get_ids()` can query for ids across many data sources
+
+```{r identifiers, eval=TRUE}
+get_ids(names="Chironomus riparius", db = 'ncbi')
+get_ids(names=c("Chironomus riparius", "Poa annua"), db = c('ncbi','itis','col'))
+```
+
+Additional functions for each data source are available, like `get_tsn()`
+
+## Hierarchies
+
+Taxonomic hierarchies, or classifications, are super useful. The function `classification()` provides a single interface to many data sources.
+
+
+```{r hierarchies, eval=TRUE}
+classification("Chironomus riparius", db = 'ncbi')
+classification(get_uid("Chironomus riparius"))
+# out <- get_ids(names="Poa annua", db = c('ncbi','itis','col','eol','tropicos'))
+# classification(out)
+```
+
+## Check name spelling
+
+Checking name spelling is an important part of name cleaning. `tnrs()` is one function of many in taxize for this.
+
+```{r spelling, eval=TRUE}
+mynames <- c("Helianthus annus", "Poa anua", "Pinus contort")
+out <- tnrs(query = mynames, source="iPlant_TNRS")
+out[,c(1:5)]
+```
+
+## Synonyms
+
+Moving on to synonyms
+
+The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names
+
+```{r synonyms, eval=TRUE}
+synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
+```
+
+## Downstream
+
+> Sometimes you just wann know "what species are in this genus!!!"
+
+```{r downstream, eval=TRUE}
+col_downstream(name = "Apis", downto="Species")[[1]]
+```
+
+## Common from scientific and vice versa
+
+> You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.
+
+```{r}
+sci2comm("Quercus lobata", db="itis",)
+comm2sci("valley oak", db="itis")
+```
+
+## end
+
+That's it, and thanks for watching. Get the materials for this screencast at [ropensci.github.io/screencasts](ropensci.github.io/screencasts)
