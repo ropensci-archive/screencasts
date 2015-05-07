@@ -6,8 +6,8 @@
     <atom:link href="http://ropensci.github.io/screencasts/feed.xml" rel="self" type="application/rss+xml" />
     <description>rOpenSci Screencasts</description>
     <language>en-us</language>
-    <pubDate>Wed, 06 May 2015 21:23:37 -0700</pubDate>
-    <lastBuildDate>Wed, 06 May 2015 21:23:37 -0700</lastBuildDate>
+    <pubDate>Wed, 06 May 2015 21:30:42 -0700</pubDate>
+    <lastBuildDate>Wed, 06 May 2015 21:30:42 -0700</lastBuildDate>
 
     
       <item>
@@ -19,7 +19,7 @@
 
 &lt;p&gt;Follow along below in your favorite R client.  I&amp;#39;ll be using the RStudio IDE.&lt;/p&gt;
 
-&lt;iframe src=&quot;//player.vimeo.com/video/124659179&quot; width=&quot;600&quot; height=&quot;381&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe src=&quot;//player.vimeo.com/video/127119010&quot; width=&quot;600&quot; height=&quot;381&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;h1&gt;rgbif screencast&lt;/h1&gt;
 
