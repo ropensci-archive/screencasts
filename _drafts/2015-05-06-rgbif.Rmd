@@ -5,18 +5,18 @@ title: rgbif
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
-	comment = "#>", 
+	comment = "#>",
 	collapse = TRUE,
-	warning = FALSE, 
+	warning = FALSE,
 	message = FALSE
 )
 ```
 
 Here's the `rgbif` screencast!
 
-Follow along below in your favorite R client.
+Follow along below in your favorite R client.  I'll be using the RStudio IDE.
 
-<!-- iframe when ready -->
+<iframe src="//player.vimeo.com/video/124659179" width="600" height="381" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 rgbif screencast
@@ -26,17 +26,11 @@ rgbif screencast
 
 > Hi, I'm Scott Chamberlain
 
-> In this screencast, I'll do a brief intoduction to the `rgbif` package - a taxonomic toolbelt for `R`
+> In this screencast, I'll do a brief intoduction to the `rgbif` package - an `R` client for the Global Biodiversity Information Facility (GBIF)
 
-> You can install rgbif from [CRAN](http://cran.rstudio.com/web/packages/rgbif), or install the [development version from GitHub](https://github.com/ropensci/rgbif).
-
-> rgbif allows you to get species occurrence data from Global Biodiverity Information Facilty (GBIF)
+> rgbif allows you to get species occurrence data from GBIF
 
 ![gbif_site](../public/images/gbif.png)
-
-> Taxonomic names are something many biologists have to deal with
-
-> I'll walk you through a variety of things you can do with rgbif
 
 ## Installation and load
 
@@ -44,7 +38,7 @@ rgbif screencast
 install.packages("rgbif")
 ```
 
-```{r message=FALSE}
+```{r}
 library("rgbif")
 ```
 
@@ -56,7 +50,7 @@ library("rgbif")
 occ_count(basisOfRecord = 'OBSERVATION')
 ```
 
-> Records for **Puma concolor** with lat/long data (georeferened) only. Note that `hasCoordinate` in `occ_search()` is the same as `georeferenced` in `occ_count()`.
+> Records for **Puma concolor** with lat/long data (georeferenced) only. Note that `hasCoordinate` in `occ_search()` is the same as `georeferenced` in `occ_count()`.
 
 ```{r occ_count2}
 occ_count(taxonKey = 2435099, georeferenced = TRUE)
@@ -68,10 +62,10 @@ occ_count(taxonKey = 2435099, georeferenced = TRUE)
 occ_count(georeferenced = TRUE)
 ```
 
-> Records from Denmark
+> Records from Denmark only
 
 ```{r occ_count4}
-denmark_code <- isocodes[grep("Denmark", isocodes$name), "code"]
+(denmark_code <- isocodes[grep("Denmark", isocodes$name), "code"])
 occ_count(country = denmark_code)
 ```
 
@@ -110,7 +104,7 @@ head(out$data, n = 2)
 
 ## Search for occurrences
 
-> By default `occ_search()` returns a `dplyr` like output summary in which the data printed expands based on how much data is returned, and the size of your window. You can search by scientific name:
+> By default `occ_search()` returns a `dplyr` like output summary in which the data printed expands based on how much data is returned, and the size of your window. You can search in a variety of ways, including by scientific name:
 
 ```{r}
 occ_search(scientificName = "Ursus americanus", limit = 20)
@@ -139,7 +133,7 @@ occ_search(taxonKey = keys, limit = 5)
 
 ## Single occurrence records
 
-> Get data for a single occurrence. Data is returned as a list, with slots for metadata and data
+> You can also get data for specific occurrences identified by occurrence key. Data is returned as a list, with slots for metadata and data
 
 > Just data
 
@@ -162,15 +156,41 @@ occ_get(key = 766766824, return = 'all')
 > Get many occurrences. `occ_get` is vectorized
 
 ```{r occ_get4}
-occ_get(key = c(766766824, 101010, 240713150, 855998194, 49819470), return = 'data')
+occ_get(key = c(766766824, 101010, 240713150, 855998194), return = 'data')
+```
+
+## Cleaning data
+
+> what do issues mean, can print whole table, or search for matches
+
+```{r}
+head(gbif_issues())
+```
+
+> compare out data to after occ_issues use
+
+```{r}
+(res <- occ_search(geometry = 'POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))', limit = 50))
+```
+
+> Keep data only with particular issues
+
+```{r}
+res %>% occ_issues(cdround)
+```
+
+> Remove data only with certain issues
+
+```{r}
+res %>% occ_issues(-mdatunl)
 ```
 
 ## Other things to explore
 
 * Maps! We have some basic mapping functionality to help you visualize data
 * Registry data - there's a suite of functions to explore data providers to GBIF
-* `spocc` Explore the R package `spocc`, where we integrate biodiversity data 
-from many places, including from GBIF via this package
+* `spocc` Explore the R package `spocc`, where we integrate biodiversity data
+from many places, including from GBIF via this package [spocc](https://github.com/ropensci/spocc)
 
 ## end
 
