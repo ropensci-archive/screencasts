@@ -1,7 +1,4 @@
-movies/
-.DS_Store
-scottnotes.md
-.Rproj.user
-screencasts.Rproj
-.Rhistory
-
+_site
+.sass-cache
+Gemfile.lock
+*.gem

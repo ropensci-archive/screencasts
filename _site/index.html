@@ -1,138 +1,68 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-US">
   <head>
-    <!-- meta information -->
-<meta charset="utf-8">
-<meta name="description" 
-      content="{% for post in site.posts %}{% unless post.next %}{% unless forloop.first %}{% endunless %}      {{ post.date | date:..." >
-<meta name="author" content="Scott Chamberlain">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- Enable responsiveness on mobile devices-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>rOpenSci Screencasts</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="rOpenSci Screencasts" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="rOpenSci Screencasts" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/","headline":"rOpenSci Screencasts","name":"rOpenSci Screencasts","@type":"WebSite","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-<!-- title -->
-<title> &middot; rOpenSci</title>
-
-<!-- icons -->
-<link rel="shortcut icon" href="/public/images/ropensci_favicon.ico" />
-
-<!-- stylesheets -->
-<link rel="stylesheet" href="/public/css/responsive.gs.12col.css">
-<link rel="stylesheet" href="/public/css/animate.min.css">
-<link rel="stylesheet" href="/public/css/main.css">
-
-<!-- Google fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
-
-
-
-<!-- feed links -->
-<link rel="alternate" href="http://localhost:4000/feed.xml" type="application/rss+xml" title="">
-
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="/assets/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div class="container azul">
-      <header class="top row gutters">
-        <div class="col span_2 center">
-          <!-- TODO: add baseurl to the logo link -->
-          <a href="http://localhost:4000" id="logo" title="rOpenSci"
-             style="background-image: url(/public/images/icon_short_color_small.png);"></a>
-        </div>
-        <nav class="col span_10 top-navbar">
-  
-  <a href="/screencasts/" title="Home"
-     >Home</a>
-  
-  <a href="/screencasts/about/" title="About"
-     >About</a>
-  
-</nav>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">rOpenSci Screencasts</h1>
+        <p class="header"></p>
 
+        <ul>
+          
+          <li><a class="buttons github" href="http://localhost:4000">Home</a></li>
+          <li><a class="buttons github" href="https://github.com/ropensci/screencasts">View On GitHub</a></li>
+          <li><a class="buttons github" href="https://vimeo.com/channels/roscreencasts">Videos</a></li>
+        </ul>
+
+        
+
+        
       </header>
 
-      <section class="archive">
+      <section>
+        <h1 id="ropensci-screencasts">rOpenSci Screencasts!</h1>
 
+<p><br /></p>
 
+<div>
+  <ul>
+    <font size="8"><li><a href="/rgbif">rgbif</a></li></font>
+    <font size="8"><li><a href="/taxize">taxize</a></li></font>
+    <font size="8"><li><a href="/elastic">elastic</a></li></font>
+  </ul>
+</div>
 
+<h2 id="more-coming-soon">more coming soon</h2>
 
-
-  <div class="bundle row gutters fadeInDown animated">
-    <h2 class="post-year col span_2">2015</h2>
-    <div class="posts-by-year col span_10">
-
-
-
-  <article class="row gutters">
-    <a href="/rgbif/" title="rgbif" class="col span_8">rgbif</a>
-    <div class="post-date col span_4">
-      <time datetime="2015-05-06">6 May</time>
-    </div>
-  </article>
-
-
-
-
-
-
-
-
-
-
-  <article class="row gutters">
-    <a href="/elastic/" title="elastic" class="col span_8">elastic</a>
-    <div class="post-date col span_4">
-      <time datetime="2015-04-10">10 April</time>
-    </div>
-  </article>
-
-
-
-
-
-
-
-
-
-
-  <article class="row gutters">
-    <a href="/taxize/" title="taxize" class="col span_8">taxize</a>
-    <div class="post-date col span_4">
-      <time datetime="2015-02-16">16 February</time>
-    </div>
-  </article>
-
-</div></div>
-
-
-</section>
-
+      </section>
 
       <footer>
-        <p>
-          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
-        </p>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-
-    <!-- scripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/public/js/jquery.fitvids.js"></script>
-    <script>
-      $(document).ready(function(){
-        $("article").fitVids();
-      });
-    </script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
-  <footer>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-63168295-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-</footer>
-
 </html>
