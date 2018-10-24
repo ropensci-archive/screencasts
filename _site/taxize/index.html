@@ -4,7 +4,7 @@
     <!-- meta information -->
 <meta charset="utf-8">
 <meta name="description" 
-      content="Here's the taxize screencast!Follow along below in your favorite R client.taxize screencast==========## Intro> Hi, I'..." >
+      content="Here&#39;s the taxize screencast!Follow along below in your favorite R client.taxize screencastIntroHi, I&#39;m Scott..." >
 <meta name="author" content="Scott Chamberlain">
 
 <!-- Enable responsiveness on mobile devices-->
@@ -14,12 +14,12 @@
 <title>taxize &middot; rOpenSci</title>
 
 <!-- icons -->
-<link rel="shortcut icon" href="/screencasts/public/images/ropensci_favicon.ico" />
+<link rel="shortcut icon" href="/public/images/ropensci_favicon.ico" />
 
 <!-- stylesheets -->
-<link rel="stylesheet" href="/screencasts/public/css/responsive.gs.12col.css">
-<link rel="stylesheet" href="/screencasts/public/css/animate.min.css">
-<link rel="stylesheet" href="/screencasts/public/css/main.css">
+<link rel="stylesheet" href="/public/css/responsive.gs.12col.css">
+<link rel="stylesheet" href="/public/css/animate.min.css">
+<link rel="stylesheet" href="/public/css/main.css">
 
 <!-- Google fonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
@@ -27,7 +27,7 @@
 
 
 <!-- feed links -->
-<link rel="alternate" href="http://ropensci.github.io/screencasts/feed.xml" type="application/rss+xml" title="">
+<link rel="alternate" href="http://localhost:4000/feed.xml" type="application/rss+xml" title="">
 
   </head>
   <body>
@@ -35,8 +35,8 @@
       <header class="top row gutters">
         <div class="col span_2 center">
           <!-- TODO: add baseurl to the logo link -->
-          <a href="http://ropensci.github.io/screencasts" id="logo" title="rOpenSci"
-             style="background-image: url(/screencasts/public/images/ropensci_small.png);"></a>
+          <a href="http://localhost:4000" id="logo" title="rOpenSci"
+             style="background-image: url(/public/images/icon_short_color_small.png);"></a>
         </div>
         <nav class="col span_10 top-navbar">
   
@@ -253,11 +253,11 @@
 </blockquote>
 
 <h2>Installation and load</h2>
-<div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>install.packages<span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2>Taxonomic identifiers</h2>
-<div class="highlight"><pre><code class="language-r" data-lang="r">get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
 <span class="c1">#&gt; $ncbi</span>
 <span class="c1">#&gt; Chironomus riparius </span>
 <span class="c1">#&gt;            &quot;315576&quot; </span>
@@ -270,7 +270,7 @@
 <span class="c1">#&gt; </span>
 <span class="c1">#&gt; attr(,&quot;class&quot;)</span>
 <span class="c1">#&gt; [1] &quot;ids&quot;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">get_ids<span class="p">(</span>names<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> <span class="s">&quot;Poa annua&quot;</span><span class="p">),</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">))</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>get_ids<span class="p">(</span>names<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> <span class="s">&quot;Poa annua&quot;</span><span class="p">),</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">))</span>
 <span class="c1">#&gt;      colid      name    rank        status</span>
 <span class="c1">#&gt; 1 19274115 Poa annua Species accepted name</span>
 <span class="c1">#&gt; 2 19274116 Poa annua Species       synonym</span>
@@ -318,7 +318,7 @@
 <blockquote>
 <p>and now taxonomic hieararchies</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">classification<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>classification<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="s">&#39;ncbi&#39;</span><span class="p">)</span>
 <span class="c1">#&gt; $`Chironomus riparius`</span>
 <span class="c1">#&gt;                         name         rank      id</span>
 <span class="c1">#&gt; 1         cellular organisms      no rank  131567</span>
@@ -354,7 +354,7 @@
 <span class="c1">#&gt; [1] &quot;classification&quot;</span>
 <span class="c1">#&gt; attr(,&quot;db&quot;)</span>
 <span class="c1">#&gt; [1] &quot;ncbi&quot;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">classification<span class="p">(</span>get_uid<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">))</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>classification<span class="p">(</span>get_uid<span class="p">(</span><span class="s">&quot;Chironomus riparius&quot;</span><span class="p">))</span>
 <span class="c1">#&gt; $`315576`</span>
 <span class="c1">#&gt;                         name         rank      id</span>
 <span class="c1">#&gt; 1         cellular organisms      no rank  131567</span>
@@ -390,7 +390,7 @@
 <span class="c1">#&gt; [1] &quot;classification&quot;</span>
 <span class="c1">#&gt; attr(,&quot;db&quot;)</span>
 <span class="c1">#&gt; [1] &quot;ncbi&quot;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">out <span class="o">&lt;-</span> get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">,</span><span class="s">&#39;eol&#39;</span><span class="p">,</span><span class="s">&#39;tropicos&#39;</span><span class="p">))</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>out <span class="o">&lt;-</span> get_ids<span class="p">(</span>names<span class="o">=</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span> db <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;ncbi&#39;</span><span class="p">,</span><span class="s">&#39;itis&#39;</span><span class="p">,</span><span class="s">&#39;col&#39;</span><span class="p">,</span><span class="s">&#39;eol&#39;</span><span class="p">,</span><span class="s">&#39;tropicos&#39;</span><span class="p">))</span>
 classification<span class="p">(</span>out<span class="p">)</span>
 </code></pre></div>
 <h2>Check name spelling</h2>
@@ -398,7 +398,7 @@ classification<span class="p">(</span>out<span class="p">)</span>
 <blockquote>
 <p>Check name spelling</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">mynames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Helianthus annus&quot;</span><span class="p">,</span> <span class="s">&quot;Poa anua&quot;</span><span class="p">,</span> <span class="s">&quot;Pinus contort&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>mynames <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Helianthus annus&quot;</span><span class="p">,</span> <span class="s">&quot;Poa anua&quot;</span><span class="p">,</span> <span class="s">&quot;Pinus contort&quot;</span><span class="p">)</span>
 out <span class="o">&lt;-</span> tnrs<span class="p">(</span>query <span class="o">=</span> mynames<span class="p">,</span> <span class="kn">source</span><span class="o">=</span><span class="s">&quot;iPlant_TNRS&quot;</span><span class="p">)</span>
 out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)]</span>
 <span class="c1">#&gt;      submittedname      acceptedname    sourceid score       matchedname</span>
@@ -413,7 +413,7 @@ out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><sp
 
 <p>The names you currently have in your dataset may be synonyms of real names, and you need to update to the accepted names</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">synonyms<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span><span class="s">&#39;Pinus contorta&#39;</span><span class="p">,</span><span class="s">&#39;Puma concolor&#39;</span><span class="p">),</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>synonyms<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Poa annua&quot;</span><span class="p">,</span><span class="s">&#39;Pinus contorta&#39;</span><span class="p">,</span><span class="s">&#39;Puma concolor&#39;</span><span class="p">),</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
 <span class="c1">#&gt; $`Poa annua`</span>
 <span class="c1">#&gt;                           name    tsn</span>
 <span class="c1">#&gt; 1      Poa annua var. aquatica 538978</span>
@@ -441,7 +441,7 @@ out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><sp
 <blockquote>
 <p>Sometimes you want know &quot;what species are in this genus!&quot;</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">col_downstream<span class="p">(</span>name <span class="o">=</span> <span class="s">&quot;Apis&quot;</span><span class="p">,</span> downto<span class="o">=</span><span class="s">&quot;Species&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>col_downstream<span class="p">(</span>name <span class="o">=</span> <span class="s">&quot;Apis&quot;</span><span class="p">,</span> downto<span class="o">=</span><span class="s">&quot;Species&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
 <span class="c1">#&gt;   childtaxa_id     childtaxa_name childtaxa_rank</span>
 <span class="c1">#&gt; 1      6971712 Apis andreniformis        Species</span>
 <span class="c1">#&gt; 2      6971713        Apis cerana        Species</span>
@@ -456,10 +456,10 @@ out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><sp
 <blockquote>
 <p>You may often need to get common names from scientific names, and vice versa. For example, maybe you need common names for a publication.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">sci2comm<span class="p">(</span><span class="s">&quot;Quercus lobata&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>sci2comm<span class="p">(</span><span class="s">&quot;Quercus lobata&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
 <span class="c1">#&gt; $`Quercus lobata`</span>
 <span class="c1">#&gt; [1] &quot;California white oak&quot; &quot;valley oak&quot;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">comm2sci<span class="p">(</span><span class="s">&quot;valley oak&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>comm2sci<span class="p">(</span><span class="s">&quot;valley oak&quot;</span><span class="p">,</span> db<span class="o">=</span><span class="s">&quot;itis&quot;</span><span class="p">)</span>
 <span class="c1">#&gt; $`valley oak`</span>
 <span class="c1">#&gt; [1] &quot;Quercus lobata&quot;</span>
 </code></pre></div>
@@ -481,7 +481,7 @@ out<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><sp
 
     <!-- scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/screencasts/public/js/jquery.fitvids.js"></script>
+    <script src="/public/js/jquery.fitvids.js"></script>
     <script>
       $(document).ready(function(){
         $("article").fitVids();

@@ -4,7 +4,7 @@
     <!-- meta information -->
 <meta charset="utf-8">
 <meta name="description" 
-      content="Welcome to the `elastic` screencast!Follow along below in your favorite R client. I'll be using the RStudio IDE.elast..." >
+      content="Welcome to the elastic screencast!Follow along below in your favorite R client. I&#39;ll be using the RStudio IDE.ela..." >
 <meta name="author" content="Scott Chamberlain">
 
 <!-- Enable responsiveness on mobile devices-->
@@ -14,12 +14,12 @@
 <title>elastic &middot; rOpenSci</title>
 
 <!-- icons -->
-<link rel="shortcut icon" href="/screencasts/public/images/ropensci_favicon.ico" />
+<link rel="shortcut icon" href="/public/images/ropensci_favicon.ico" />
 
 <!-- stylesheets -->
-<link rel="stylesheet" href="/screencasts/public/css/responsive.gs.12col.css">
-<link rel="stylesheet" href="/screencasts/public/css/animate.min.css">
-<link rel="stylesheet" href="/screencasts/public/css/main.css">
+<link rel="stylesheet" href="/public/css/responsive.gs.12col.css">
+<link rel="stylesheet" href="/public/css/animate.min.css">
+<link rel="stylesheet" href="/public/css/main.css">
 
 <!-- Google fonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
@@ -27,7 +27,7 @@
 
 
 <!-- feed links -->
-<link rel="alternate" href="http://ropensci.github.io/screencasts/feed.xml" type="application/rss+xml" title="">
+<link rel="alternate" href="http://localhost:4000/feed.xml" type="application/rss+xml" title="">
 
   </head>
   <body>
@@ -35,8 +35,8 @@
       <header class="top row gutters">
         <div class="col span_2 center">
           <!-- TODO: add baseurl to the logo link -->
-          <a href="http://ropensci.github.io/screencasts" id="logo" title="rOpenSci"
-             style="background-image: url(/screencasts/public/images/ropensci_small.png);"></a>
+          <a href="http://localhost:4000" id="logo" title="rOpenSci"
+             style="background-image: url(/public/images/icon_short_color_small.png);"></a>
         </div>
         <nav class="col span_10 top-navbar">
   
@@ -81,8 +81,8 @@ data input b/c you don&#39;t have to specify a schema manaully beforehand</p>
 </blockquote>
 
 <h2>Installation and load</h2>
-<div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;elastic&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span><span class="s">&quot;elastic&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>install.packages<span class="p">(</span><span class="s">&quot;elastic&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;elastic&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2>Install and start Elasticsearch</h2>
 
@@ -103,7 +103,7 @@ data input b/c you don&#39;t have to specify a schema manaully beforehand</p>
 <blockquote>
 <p><code>connect()</code> is used before doing anything else to set the connection details to your remote or local elasticsearch store</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">connect<span class="p">()</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>connect<span class="p">()</span>
 <span class="c1">#&gt; uri:       http://127.0.0.1 </span>
 <span class="c1">#&gt; port:      9200 </span>
 <span class="c1">#&gt; username:  NULL </span>
@@ -130,7 +130,7 @@ function.</p>
 <blockquote>
 <p>Get list of cat endpoints</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">cat_<span class="p">()</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>cat_<span class="p">()</span>
 <span class="c1">#&gt; =^.^=</span>
 <span class="c1">#&gt; /_cat/allocation</span>
 <span class="c1">#&gt; /_cat/shards</span>
@@ -157,7 +157,7 @@ function.</p>
 <blockquote>
 <p>Get list of indices</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">cat_indices<span class="p">()</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>cat_indices<span class="p">()</span>
 <span class="c1">#&gt; yellow open flowers               5 1     150     0  43.6kb  43.6kb </span>
 <span class="c1">#&gt; yellow open stuff_m               5 1       0     0    575b    575b </span>
 <span class="c1">#&gt; yellow open flights               5 1  156766     0  21.3mb  21.3mb </span>
@@ -206,7 +206,7 @@ function.</p>
 <blockquote>
 <p>Get cluster health information</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">cluster_health<span class="p">()</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>cluster_health<span class="p">()</span>
 <span class="c1">#&gt; $cluster_name</span>
 <span class="c1">#&gt; [1] &quot;elasticsearch&quot;</span>
 <span class="c1">#&gt; </span>
@@ -245,7 +245,7 @@ function.</p>
 <blockquote>
 <p>Get node information</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">nodes_info<span class="p">()</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>nodes_info<span class="p">()</span>
 </code></pre></div>
 <blockquote>
 <p>You can do things like stop and start nodes, change their settings and so on.</p>
@@ -271,12 +271,12 @@ There are many functions to interact with indices</p>
 <blockquote>
 <p>Create an index</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-text" data-lang="text">#&gt; $acknowledged
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>#&gt; $acknowledged
 #&gt; [1] TRUE
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">index_create<span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>index_create<span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">)</span>
 <span class="c1">#&gt; $acknowledged</span>
 <span class="c1">#&gt; [1] TRUE</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">index_get<span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>index_get<span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">)</span>
 <span class="c1">#&gt; $animals</span>
 <span class="c1">#&gt; $animals$aliases</span>
 <span class="c1">#&gt; named list()</span>
@@ -325,7 +325,7 @@ There are many functions to interact with indices</p>
 <blockquote>
 <p>Create a few documents</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">&#39;animals&#39;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&#39;bears&#39;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">,</span> body<span class="o">=</span><span class="kt">list</span><span class="p">(</span>id<span class="o">=</span><span class="s">&quot;12345&quot;</span><span class="p">,</span> name<span class="o">=</span><span class="s">&quot;big bear&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">&#39;animals&#39;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&#39;bears&#39;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">,</span> body<span class="o">=</span><span class="kt">list</span><span class="p">(</span>id<span class="o">=</span><span class="s">&quot;12345&quot;</span><span class="p">,</span> name<span class="o">=</span><span class="s">&quot;big bear&quot;</span><span class="p">))</span>
 <span class="c1">#&gt; $`_index`</span>
 <span class="c1">#&gt; [1] &quot;animals&quot;</span>
 <span class="c1">#&gt; </span>
@@ -359,7 +359,7 @@ docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">
 <blockquote>
 <p>The documents are there now, get one</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">docs_get<span class="p">(</span>index<span class="o">=</span><span class="s">&#39;animals&#39;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&#39;bears&#39;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>docs_get<span class="p">(</span>index<span class="o">=</span><span class="s">&#39;animals&#39;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&#39;bears&#39;</span><span class="p">,</span> id<span class="o">=</span><span class="m">1</span><span class="p">)</span>
 <span class="c1">#&gt; $`_index`</span>
 <span class="c1">#&gt; [1] &quot;animals&quot;</span>
 <span class="c1">#&gt; </span>
@@ -388,7 +388,7 @@ docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">
 <blockquote>
 <p>Get multiple documents at once</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">docs_mget<span class="p">(</span>index_type_id<span class="o">=</span><span class="kt">list</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">,</span><span class="s">&quot;bears&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">,</span><span class="s">&quot;lions&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">)))</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>docs_mget<span class="p">(</span>index_type_id<span class="o">=</span><span class="kt">list</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">,</span><span class="s">&quot;bears&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;animals&quot;</span><span class="p">,</span><span class="s">&quot;lions&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">)))</span>
 <span class="c1">#&gt; $docs</span>
 <span class="c1">#&gt; $docs[[1]]</span>
 <span class="c1">#&gt; $docs[[1]]$`_index`</span>
@@ -454,19 +454,19 @@ docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">
 
 <p>Shakespeare data</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">shakespeare <span class="o">&lt;-</span> <span class="kp">system.file</span><span class="p">(</span><span class="s">&quot;examples&quot;</span><span class="p">,</span> <span class="s">&quot;shakespeare_data.json&quot;</span><span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;elastic&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>shakespeare <span class="o">&lt;-</span> <span class="kp">system.file</span><span class="p">(</span><span class="s">&quot;examples&quot;</span><span class="p">,</span> <span class="s">&quot;shakespeare_data.json&quot;</span><span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;elastic&quot;</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Then load the data into Elasticsearch:</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">docs_bulk<span class="p">(</span>shakespeare<span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>docs_bulk<span class="p">(</span>shakespeare<span class="p">)</span>
 </code></pre></div>
 <h3>Search the data</h3>
 
 <blockquote>
 <p>Search the <code>shakespeare</code> index and only return 1 result</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">Search<span class="p">(</span>index <span class="o">=</span> <span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> size <span class="o">=</span> <span class="m">1</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>hits
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>Search<span class="p">(</span>index <span class="o">=</span> <span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> size <span class="o">=</span> <span class="m">1</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>hits
 <span class="c1">#&gt; [[1]]</span>
 <span class="c1">#&gt; [[1]]$`_index`</span>
 <span class="c1">#&gt; [1] &quot;shakespeare&quot;</span>
@@ -505,7 +505,7 @@ docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">
 <blockquote>
 <p>Search the <code>shakespeare</code> index, and the <code>scene</code> document type, and query for <em>york</em></p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;scene&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;scene&quot;</span><span class="p">,</span>
        q<span class="o">=</span><span class="s">&quot;york&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">2</span><span class="p">,</span> fields <span class="o">=</span> <span class="s">&#39;speaker&#39;</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>hits
 <span class="c1">#&gt; [[1]]</span>
 <span class="c1">#&gt; [[1]]$`_index`</span>
@@ -555,19 +555,19 @@ docs_create<span class="p">(</span>index<span class="o">=</span><span class="s">
 <blockquote>
 <p>Fuzzy search</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> q<span class="o">=</span><span class="s">&quot;text_entry:ma~&quot;</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>total
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> q<span class="o">=</span><span class="s">&quot;text_entry:ma~&quot;</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>total
 <span class="c1">#&gt; [1] 893</span>
 </code></pre></div>
 <blockquote>
 <p>Ranges, here where <code>line_id</code> value is between 10 and 20</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> q<span class="o">=</span><span class="s">&quot;line_id:[10 TO 20]&quot;</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>total
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> q<span class="o">=</span><span class="s">&quot;line_id:[10 TO 20]&quot;</span><span class="p">)</span><span class="o">$</span>hits<span class="o">$</span>total
 <span class="c1">#&gt; [1] 11</span>
 </code></pre></div>
 <blockquote>
 <p>Give explanation of search in result</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">1</span><span class="p">,</span> explain<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>Search<span class="p">(</span>index<span class="o">=</span><span class="s">&quot;shakespeare&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">1</span><span class="p">,</span> explain<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 <span class="c1">#&gt; $took</span>
 <span class="c1">#&gt; [1] 12</span>
 <span class="c1">#&gt; </span>
@@ -685,7 +685,7 @@ in our discussion forum https://discuss.ropensci.org</p>
 
     <!-- scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/screencasts/public/js/jquery.fitvids.js"></script>
+    <script src="/public/js/jquery.fitvids.js"></script>
     <script>
       $(document).ready(function(){
         $("article").fitVids();

@@ -4,7 +4,7 @@
     <!-- meta information -->
 <meta charset="utf-8">
 <meta name="description" 
-      content="Here's the `rgbif` screencast!Follow along below in your favorite R client.  I'll be using the RStudio IDE.rgbif scre..." >
+      content="Here&#39;s the rgbif screencast!Follow along below in your favorite R client.  I&#39;ll be using the RStudio IDE.rgbi..." >
 <meta name="author" content="Scott Chamberlain">
 
 <!-- Enable responsiveness on mobile devices-->
@@ -14,12 +14,12 @@
 <title>rgbif &middot; rOpenSci</title>
 
 <!-- icons -->
-<link rel="shortcut icon" href="/screencasts/public/images/ropensci_favicon.ico" />
+<link rel="shortcut icon" href="/public/images/ropensci_favicon.ico" />
 
 <!-- stylesheets -->
-<link rel="stylesheet" href="/screencasts/public/css/responsive.gs.12col.css">
-<link rel="stylesheet" href="/screencasts/public/css/animate.min.css">
-<link rel="stylesheet" href="/screencasts/public/css/main.css">
+<link rel="stylesheet" href="/public/css/responsive.gs.12col.css">
+<link rel="stylesheet" href="/public/css/animate.min.css">
+<link rel="stylesheet" href="/public/css/main.css">
 
 <!-- Google fonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext">
@@ -27,7 +27,7 @@
 
 
 <!-- feed links -->
-<link rel="alternate" href="http://ropensci.github.io/screencasts/feed.xml" type="application/rss+xml" title="">
+<link rel="alternate" href="http://localhost:4000/feed.xml" type="application/rss+xml" title="">
 
   </head>
   <body>
@@ -35,8 +35,8 @@
       <header class="top row gutters">
         <div class="col span_2 center">
           <!-- TODO: add baseurl to the logo link -->
-          <a href="http://ropensci.github.io/screencasts" id="logo" title="rOpenSci"
-             style="background-image: url(/screencasts/public/images/ropensci_small.png);"></a>
+          <a href="http://localhost:4000" id="logo" title="rOpenSci"
+             style="background-image: url(/public/images/icon_short_color_small.png);"></a>
         </div>
         <nav class="col span_10 top-navbar">
   
@@ -75,33 +75,33 @@
 <p><img src="../public/images/gbif.png" alt="gbif_site"></p>
 
 <h2>Installation and load</h2>
-<div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;rgbif&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span><span class="s">&quot;rgbif&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>install.packages<span class="p">(</span><span class="s">&quot;rgbif&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;rgbif&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2>Get number of occurrences</h2>
 
 <blockquote>
 <p>Search by type of record, all observational in this case</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_count<span class="p">(</span>basisOfRecord <span class="o">=</span> <span class="s">&#39;OBSERVATION&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_count<span class="p">(</span>basisOfRecord <span class="o">=</span> <span class="s">&#39;OBSERVATION&#39;</span><span class="p">)</span>
 <span class="c1">#&gt; [1] 114413835</span>
 </code></pre></div>
 <blockquote>
 <p>Records for <strong>Puma concolor</strong> with lat/long data (georeferenced) only. Note that <code>hasCoordinate</code> in <code>occ_search()</code> is the same as <code>georeferenced</code> in <code>occ_count()</code>.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_count<span class="p">(</span>taxonKey <span class="o">=</span> <span class="m">2435099</span><span class="p">,</span> georeferenced <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_count<span class="p">(</span>taxonKey <span class="o">=</span> <span class="m">2435099</span><span class="p">,</span> georeferenced <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="c1">#&gt; [1] 2847</span>
 </code></pre></div>
 <blockquote>
 <p>All georeferenced records in GBIF</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_count<span class="p">(</span>georeferenced <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_count<span class="p">(</span>georeferenced <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="c1">#&gt; [1] 465184716</span>
 </code></pre></div>
 <blockquote>
 <p>Records from Denmark only</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="p">(</span>denmark_code <span class="o">&lt;-</span> isocodes<span class="p">[</span><span class="kp">grep</span><span class="p">(</span><span class="s">&quot;Denmark&quot;</span><span class="p">,</span> isocodes<span class="o">$</span>name<span class="p">),</span> <span class="s">&quot;code&quot;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="p">(</span>denmark_code <span class="o">&lt;-</span> isocodes<span class="p">[</span><span class="kp">grep</span><span class="p">(</span><span class="s">&quot;Denmark&quot;</span><span class="p">,</span> isocodes<span class="o">$</span>name<span class="p">),</span> <span class="s">&quot;code&quot;</span><span class="p">])</span>
 <span class="c1">#&gt; [1] &quot;DK&quot;</span>
 occ_count<span class="p">(</span>country <span class="o">=</span> denmark_code<span class="p">)</span>
 <span class="c1">#&gt; [1] 9614891</span>
@@ -122,7 +122,7 @@ occ_count<span class="p">(</span>country <span class="o">=</span> denmark_code<s
 <blockquote>
 <p><code>name_backbone()</code> searches against the GBIF backbone taxonomy</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">name_backbone<span class="p">(</span>name <span class="o">=</span> <span class="s">&#39;Helianthus&#39;</span><span class="p">,</span> rank <span class="o">=</span> <span class="s">&#39;genus&#39;</span><span class="p">,</span> kingdom <span class="o">=</span> <span class="s">&#39;plants&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>name_backbone<span class="p">(</span>name <span class="o">=</span> <span class="s">&#39;Helianthus&#39;</span><span class="p">,</span> rank <span class="o">=</span> <span class="s">&#39;genus&#39;</span><span class="p">,</span> kingdom <span class="o">=</span> <span class="s">&#39;plants&#39;</span><span class="p">)</span>
 <span class="c1">#&gt; $usageKey</span>
 <span class="c1">#&gt; [1] 3119134</span>
 <span class="c1">#&gt; </span>
@@ -186,13 +186,13 @@ occ_count<span class="p">(</span>country <span class="o">=</span> denmark_code<s
 <blockquote>
 <p><code>name_lookup()</code> does full text search of name usages covering the scientific and vernacular name, the species description, distribution and the entire classification across all name usages of all or some checklists</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">out <span class="o">&lt;-</span> name_lookup<span class="p">(</span>query <span class="o">=</span> <span class="s">&#39;mammalia&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">names</span><span class="p">(</span>out<span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>out <span class="o">&lt;-</span> name_lookup<span class="p">(</span>query <span class="o">=</span> <span class="s">&#39;mammalia&#39;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kp">names</span><span class="p">(</span>out<span class="p">)</span>
 <span class="c1">#&gt; [1] &quot;meta&quot;        &quot;data&quot;        &quot;facets&quot;      &quot;hierarchies&quot; &quot;names&quot;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">out<span class="o">$</span>meta
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>out<span class="o">$</span>meta
 <span class="c1">#&gt;   offset limit endOfRecords  count</span>
 <span class="c1">#&gt; 1      0   100        FALSE 119432</span>
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">head</span><span class="p">(</span>out<span class="o">$</span>data<span class="p">,</span> n <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kp">head</span><span class="p">(</span>out<span class="o">$</span>data<span class="p">,</span> n <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 <span class="c1">#&gt;         key          scientificName                           datasetKey</span>
 <span class="c1">#&gt; 1 125798198                Mammalia 16c3f9cb-4b19-4553-ac8e-ebb90003aa02</span>
 <span class="c1">#&gt; 2 116665331 Mammalia Linnaeus, 1758 cbb6498e-8927-405a-916b-576d00a6289b</span>
@@ -220,7 +220,7 @@ occ_count<span class="p">(</span>country <span class="o">=</span> denmark_code<s
 <blockquote>
 <p>By default <code>occ_search()</code> returns a <code>dplyr</code> like output summary in which the data printed expands based on how much data is returned, and the size of your window. You can search in a variety of ways, including by scientific name:</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_search<span class="p">(</span>scientificName <span class="o">=</span> <span class="s">&quot;Ursus americanus&quot;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_search<span class="p">(</span>scientificName <span class="o">=</span> <span class="s">&quot;Ursus americanus&quot;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
 <span class="c1">#&gt; Records found [7202] </span>
 <span class="c1">#&gt; Records returned [20] </span>
 <span class="c1">#&gt; No. unique hierarchies [1] </span>
@@ -275,7 +275,7 @@ occ_count<span class="p">(</span>country <span class="o">=</span> denmark_code<s
 <blockquote>
 <p>Or to be more precise, you can search for names first, make sure you have the right name, then pass the GBIF key to the <code>occ_search()</code> function:</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">key <span class="o">&lt;-</span> name_suggest<span class="p">(</span>q <span class="o">=</span> <span class="s">&#39;Helianthus annuus&#39;</span><span class="p">,</span> rank <span class="o">=</span> <span class="s">&#39;species&#39;</span><span class="p">)</span><span class="o">$</span>key<span class="p">[</span><span class="m">1</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>key <span class="o">&lt;-</span> name_suggest<span class="p">(</span>q <span class="o">=</span> <span class="s">&#39;Helianthus annuus&#39;</span><span class="p">,</span> rank <span class="o">=</span> <span class="s">&#39;species&#39;</span><span class="p">)</span><span class="o">$</span>key<span class="p">[</span><span class="m">1</span><span class="p">]</span>
 occ_search<span class="p">(</span>taxonKey <span class="o">=</span> key<span class="p">,</span> limit <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
 <span class="c1">#&gt; Records found [20363] </span>
 <span class="c1">#&gt; Records returned [20] </span>
@@ -322,7 +322,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> key<span cla
 <blockquote>
 <p>You can choose what fields to return. This isn&#39;t passed on to the API query to GBIF as they don&#39;t allow that, but we filter out the columns before we give the data back to you.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_search<span class="p">(</span>scientificName <span class="o">=</span> <span class="s">&quot;Ursus americanus&quot;</span><span class="p">,</span> fields <span class="o">=</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_search<span class="p">(</span>scientificName <span class="o">=</span> <span class="s">&quot;Ursus americanus&quot;</span><span class="p">,</span> fields <span class="o">=</span> <span class="s">&#39;name&#39;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
 <span class="c1">#&gt; Records found [7202] </span>
 <span class="c1">#&gt; Records returned [20] </span>
 <span class="c1">#&gt; No. unique hierarchies [1] </span>
@@ -346,7 +346,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> key<span cla
 <blockquote>
 <p>Most parameters are vectorized, so you can pass in more than one value:</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">splist <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Cyanocitta stelleri&#39;</span><span class="p">,</span> <span class="s">&#39;Junco hyemalis&#39;</span><span class="p">,</span> <span class="s">&#39;Aix sponsa&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>splist <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Cyanocitta stelleri&#39;</span><span class="p">,</span> <span class="s">&#39;Junco hyemalis&#39;</span><span class="p">,</span> <span class="s">&#39;Aix sponsa&#39;</span><span class="p">)</span>
 keys <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span>splist<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> name_suggest<span class="p">(</span>x<span class="p">)</span><span class="o">$</span>key<span class="p">[</span><span class="m">1</span><span class="p">],</span> USE.NAMES <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
 occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span class="p">,</span> limit <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
 <span class="c1">#&gt; Occ. found [2482598 (355649), 2492010 (1942197), 2498387 (592079)] </span>
@@ -387,14 +387,14 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 
 <p>Just data</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;data&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;data&#39;</span><span class="p">)</span>
 <span class="c1">#&gt;              name       key decimalLatitude decimalLongitude        issues</span>
 <span class="c1">#&gt; 1 Corvus monedula 766766824         59.4568          17.9054 depunl,gass84</span>
 </code></pre></div>
 <blockquote>
 <p>Just taxonomic hierarchy</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;hier&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;hier&#39;</span><span class="p">)</span>
 <span class="c1">#&gt;              name     key    rank</span>
 <span class="c1">#&gt; 1        Animalia       1 kingdom</span>
 <span class="c1">#&gt; 2        Chordata      44  phylum</span>
@@ -407,7 +407,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>All data, or leave return parameter blank</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;all&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_get<span class="p">(</span>key <span class="o">=</span> <span class="m">766766824</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;all&#39;</span><span class="p">)</span>
 <span class="c1">#&gt; $hierarchy</span>
 <span class="c1">#&gt;              name     key    rank</span>
 <span class="c1">#&gt; 1        Animalia       1 kingdom</span>
@@ -428,7 +428,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>Get many occurrences. <code>occ_get</code> is vectorized</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">occ_get<span class="p">(</span>key <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">766766824</span><span class="p">,</span> <span class="m">101010</span><span class="p">,</span> <span class="m">240713150</span><span class="p">,</span> <span class="m">855998194</span><span class="p">),</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;data&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>occ_get<span class="p">(</span>key <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">766766824</span><span class="p">,</span> <span class="m">101010</span><span class="p">,</span> <span class="m">240713150</span><span class="p">,</span> <span class="m">855998194</span><span class="p">),</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&#39;data&#39;</span><span class="p">)</span>
 <span class="c1">#&gt;                  name       key decimalLatitude decimalLongitude</span>
 <span class="c1">#&gt; 1     Corvus monedula 766766824         59.4568          17.9054</span>
 <span class="c1">#&gt; 2 Platydoras costatus    101010         -4.3500         -70.0667</span>
@@ -445,7 +445,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>what do issues mean, can print whole table, or search for matches</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">head</span><span class="p">(</span>gbif_issues<span class="p">())</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kp">head</span><span class="p">(</span>gbif_issues<span class="p">())</span>
 <span class="c1">#&gt;    code                              issue</span>
 <span class="c1">#&gt; 1   bri            BASIS_OF_RECORD_INVALID</span>
 <span class="c1">#&gt; 2   ccm         CONTINENT_COUNTRY_MISMATCH</span>
@@ -464,7 +464,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>compare out data to after occ_issues use</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="p">(</span>res <span class="o">&lt;-</span> occ_search<span class="p">(</span>geometry <span class="o">=</span> <span class="s">&#39;POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))&#39;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">50</span><span class="p">))</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="p">(</span>res <span class="o">&lt;-</span> occ_search<span class="p">(</span>geometry <span class="o">=</span> <span class="s">&#39;POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))&#39;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">50</span><span class="p">))</span>
 <span class="c1">#&gt; Records found [972494] </span>
 <span class="c1">#&gt; Records returned [50] </span>
 <span class="c1">#&gt; No. unique hierarchies [45] </span>
@@ -507,7 +507,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>Keep data only with particular issues</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">res <span class="o">%&gt;%</span> occ_issues<span class="p">(</span>cdround<span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>res <span class="o">%&gt;%</span> occ_issues<span class="p">(</span>cdround<span class="p">)</span>
 <span class="c1">#&gt; Records found [972494] </span>
 <span class="c1">#&gt; Records returned [15] </span>
 <span class="c1">#&gt; No. unique hierarchies [45] </span>
@@ -550,7 +550,7 @@ occ_search<span class="p">(</span>taxonKey <span class="o">=</span> keys<span cl
 <blockquote>
 <p>Remove data only with certain issues</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-r" data-lang="r">res <span class="o">%&gt;%</span> occ_issues<span class="p">(</span><span class="o">-</span>mdatunl<span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>res <span class="o">%&gt;%</span> occ_issues<span class="p">(</span><span class="o">-</span>mdatunl<span class="p">)</span>
 <span class="c1">#&gt; Records found [972494] </span>
 <span class="c1">#&gt; Records returned [38] </span>
 <span class="c1">#&gt; No. unique hierarchies [45] </span>
@@ -617,7 +617,7 @@ from many places, including from GBIF via this package <a href="https://github.c
 
     <!-- scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/screencasts/public/js/jquery.fitvids.js"></script>
+    <script src="/public/js/jquery.fitvids.js"></script>
     <script>
       $(document).ready(function(){
         $("article").fitVids();
